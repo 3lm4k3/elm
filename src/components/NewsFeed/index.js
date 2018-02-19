@@ -32,7 +32,7 @@ import Carrousel from "../common/Carrousel"
 
 import styles from "./styles"
 import cstyles from "../common/style"
-
+const { width, height } = Dimensions.get('window')
 export default class NewsFeed extends React.Component {
   state = {
     searchText: "",
@@ -109,7 +109,7 @@ export default class NewsFeed extends React.Component {
               <FontAwesome name="newspaper-o" size={30} color="#484848" />
               <Text>Feeds</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={()=> Actions.profiles()}>
               <Icon name="users" size={30} color="#484848" />
               <Text>Profiles</Text>
             </Button>

@@ -39,13 +39,13 @@ export default class App extends React.Component {
             <Scene key="createbid" component={CreateBid} title="Bid"/>
             <Scene key="calculator"  component={Calculator} title="Calculator"/>
             <Scene key="stocks" component={Stocks} title="Stocks"/>
-            {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
+            <Scene key="tourLogin" initial component={TakeTourScreen} title="TakeTourScreen"/>
             <Scene key="register"  component={FirstScreen} title="New Account"/>
             <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
             <Scene key="profiles" component={ProfilesScreen} title="Profiles"/>
             <Scene key="pdfPage" component={PDFPage} title="pdfPage"/>
             <Scene key="References"  component={ReferencesScreen} title="References"/>
-            <Scene key="VisitedProfileProjects" initial component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
+            <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
             <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
           </Scene>
 

@@ -16,51 +16,6 @@ export default StyleSheet.create({
     marginLeft: 15,
     color: "#935CAE"
   },
-  card: {
-    backgroundColor: "green",
-    height: 175,
-    width: 175,
-    backgroundColor: "#fff",
-    elevation: 15,
-    margin: 15,
-    marginRight: 5,
-    marginBottom: 20,
-    paddingHorizontal: -35,
-    justifyContent: "flex-end"
-  },
-  meta: {
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-    top: 10,
-    left: 35
-  },
-  stockData: {
-    position: "absolute",
-    bottom: 5,
-    left: 35,
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 5,
-  },
-  stockPrice: {
-    fontWeight: "bold",
-    color: "#484848",
-    fontSize: 16,
-    marginLeft: 5,
-    lineHeight: 30
-  },
-  stockPercentage: {
-    color: "#FE8080",
-    fontSize: 17,
-    marginTop: -5
-  },
-  gradient: {
-    position: "absolute",
-    bottom: -5,
-    width: 200,
-    height: 50,
-  },
   brandsList: {
     backgroundColor: "#fff",
     paddingVertical: 5,

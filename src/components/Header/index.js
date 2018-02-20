@@ -9,7 +9,7 @@ import {
 } from "react-native"
 import Icon from 'react-native-vector-icons/Feather';
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class extends React.Component {
   
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
   Header: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
+    height: 60,
+    paddingVertical: 5,
     width: Dimensions.get("window").width,
   },
   headerContent: {

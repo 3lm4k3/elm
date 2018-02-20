@@ -1,9 +1,8 @@
 import React from "react"
 import {
   View,
-  Dimensions,
-  StyleSheet,
-  Text
+  Text,
+  ToastAndroid
 } from "react-native"
 import {
   Thumbnail,
@@ -22,7 +21,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Divider from "../common/Divider"
 import Button from "../common/RippleButton"
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 const { row, spaceBetween, center } = cstyles
 
@@ -84,7 +83,30 @@ export default class NewStatus extends React.Component {
     }
   }
   handlePosting = () => {
-    
+    const text = this.state.postText
+    fetch("https://us-central1-elmawkaa.cloudfunctions.net/addMessage?text=" + text)
+      .then((res) => {
+        if(res.status === 200) {
+          console.log(res)
+          return res.json()
+        }
+      }).then(json => {
+        ToastAndroid.showWithGravityAndOffset(
+            json.message,
+            ToastAndroid.LONG,
+            ToastAndroid.BOTTOM,
+            25,
+            50
+        );
+      }).catch(e => {
+        ToastAndroid.showWithGravityAndOffset(
+          e.message,
+          ToastAndroid.LONG,
+          ToastAndroid.BOTTOM,
+          25,
+          50
+        );
+      })
   }
   componentDidUpdate(prevProps, prevState) {
     const { postType, postText } = this.state

@@ -8,7 +8,7 @@ import Ripple from "react-native-material-ripple"
 import LinearGradient from "react-native-linear-gradient"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 
-import cstyles from "../common/style"
+import cstyles from "./styles"
 import style from '../NewsFeed/styles';
 
 const { row, spaceBetween, center, bold } = cstyles

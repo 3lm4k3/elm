@@ -5,7 +5,7 @@ import StarRating from './StarRating';
 const CategoryCard = (props) => {
 	return (
 		<View style={styles.containerStyle}>
-			<Image style={styles.image} source={props.icon} ></Image>
+			<Image style={styles.image} source={props.icon} />
 			<Text style={styles.textStyle} >{props.headerText}</Text>
 			<StarRating
 				maxStars={5}

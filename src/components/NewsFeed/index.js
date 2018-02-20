@@ -31,7 +31,7 @@ import SearchBar from "../common/HeaderSearchBar"
 import Carrousel from "../common/Carrousel"
 
 import styles from "./styles"
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class NewsFeed extends React.Component {
   state = {

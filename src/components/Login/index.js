@@ -23,7 +23,7 @@ import Header from "../Header/index"  // Header Component
 import Divider from "../common/Divider"  // Header Component
 
 import styles from "./styles"  // Component Styles
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 
 export default class Login extends React.Component {

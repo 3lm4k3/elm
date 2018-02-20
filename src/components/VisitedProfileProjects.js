@@ -24,7 +24,7 @@ import { createStore } from 'redux';
 import TagList from './TagList';
 import reducers from '../reducers';
 import StarRating from './common/StarRating';
-import { Card,Header,CategoryCard,ProjCard,CardSection,ContactCard,Input,Spinner,
+import { Card,Header,ReviewCard,CategoryCard,ProjCard,CardSection,ContactCard,Input,Spinner,
   Checkbox } from './common';
 const { width, height } = Dimensions.get('window')
 export default class VisitedProfileProjectsScreen extends React.Component {
@@ -145,7 +145,7 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 				followingNum,followingText,wallTxt,aboutTxt,projectsTxt,moreTxt,
 			linearGradient,userName,yellowSeparator,whiteSeparator,
 			userProfilePic,ratingStyle,profession,wallBtn,moreBtn,aboutBtn,projectsBtn,
-			intro,addressPointsTitle,actualAddress,points,tabsText } = styles;
+			intro,addressPointsTitle,actualAddress,points,tabsText,skillName,skillButton } = styles;
 		return(
 
 			<LinearGradient colors={['#5871B5', '#935CAE']} style={linearGradient}>
@@ -234,10 +234,67 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 			        			<Image source={require('../assets/images/home.png')}></Image>
 			        			<Image source={require('../assets/images/home.png')}></Image>
 			        		</View>
+			        		<Text style={addressPointsTitle}>profession</Text>
+			        		<View style={{flexDirection:'row',marginLeft:16}}>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        		</View>
+			        		<View style={{flexDirection:'row',marginLeft:16,marginTop:15}}>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        		</View>
+			        		<Text style={addressPointsTitle}>Skills</Text>
+			        		<View style={{flexDirection:'row',marginLeft:16}}>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        		</View>
+			        		<View style={{flexDirection:'row',marginLeft:16,marginTop:15}}>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        			<TouchableOpacity style={skillButton}><Text style={skillName}>Skill name</Text></TouchableOpacity>
+			        		</View>
+			        		<Text style={addressPointsTitle}>Reviews</Text>
+			        		<ScrollView>
+				        		 <FlatList
+							        	
+							          data={[
+							            {key:1,userPic:require('../assets/images/prices.png'),
+							            userName:'ali',jobTitle:"BatMan",
+							            reviewDate:'December 12 at 5:30 PM',ratingStars:3,
+							            reviewTitle:'Review title goes here',
+							            reviewText:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nulla ac purus aliquam commodo. Vivamus pellentesque.'},
+
+							            {key:2,userPic:require('../assets/images/prices.png'),
+							            userName:'ali',jobTitle:"BatMan",
+							            reviewDate:'December 12 at 5:30 PM',ratingStars:3,
+							            reviewTitle:'Review title goes here',
+							            reviewText:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nulla ac purus aliquam commodo. Vivamus pellentesque.'},
+							            
+							            
+							          ]}
+							          renderItem={({item}) => <ReviewCard 
+												userPic={item.userPic}
+
+												userName={item.userName}
+												jobTitle={item.jobTitle}
+												reviewDate={item.reviewDate}
+												ratingStars={item.ratingStars}
+												reviewTitle={item.reviewTitle}
+												reviewText={item.reviewText}
+												>
+												
+												</ReviewCard>
+												
+											}
+							        />
+						        </ScrollView>
 
 			        	</Tab>
 			        	<Tab heading={<TabHeading style={{backgroundColor:'transparent'}}><Text style={tabsText}>Projects</Text></TabHeading>}  style={{ backgroundColor:'transparent'}}>
+			        		<ScrollView>
 			        		<View style={{ flexDirection:'row'}}>
+
 						        <FlatList
 						        	
 						          data={[
@@ -283,6 +340,7 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 						        
 
 						        </View>
+						        </ScrollView>
 						        
 
 			        	</Tab>
@@ -308,6 +366,23 @@ const styles = {
 	},
 	back:{
 		marginTop:20,
+	},
+	skillButton:{
+		alignItems:'center',
+		justifyContent:'center',
+		marginRight:18,
+		backgroundColor:'white',
+		width:90,
+		height:33,
+		borderRadius:5,
+		shadowOffset: { width: 0, height: 6 },
+
+	},
+	skillName:{
+		fontWeight:'bold',
+		fontSize:12,
+		color:'#935CAE',
+		backgroundColor:'transparent',
 	},
 	addressPointsTitle:{
 		fontWeight:'bold',

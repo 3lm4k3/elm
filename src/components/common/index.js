@@ -8,3 +8,4 @@ export * from './Checkbox';
 export * from './CategoryCard';
 export * from './ContactCard';
 export * from './ProjCard';
+export * from './ReviewCard';

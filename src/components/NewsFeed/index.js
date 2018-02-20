@@ -121,7 +121,7 @@ export default class NewsFeed extends React.Component {
               <Icon name="x" size={30} color="#484848" />              
               <Text>Bids</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={()=> Actions.more()}>
               <Icon name="x" size={30} color="#484848" />              
               <Text>More</Text>
             </Button>

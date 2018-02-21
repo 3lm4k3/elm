@@ -8,23 +8,28 @@ import Swiper from 'react-native-swiper';
 import range from "lodash.range"
 
 
-export default () => (
+export default (props) => (
       <View style={styles.wrapper} >
       <Swiper autoplay={true} showsButtons={true} paginationStyle={{marginBottom: -20}} dotColor={"rgba(255,255,255,0.75)"} activeDotStyle={styles.activeDot}  >
           <View style={styles.slide}>
-            <Image style={{resizeMode: "cover", flex: 1}} source={require("../../assets/images/unfinished-villa.jpg")}/>                          
+            <Image style={{resizeMode: props.resizeMode || "cover", flex: 1}}
+                   source={props.image || require("../../assets/images/unfinished-villa.jpg")}/>
           </View>
           <View style={styles.slide}>
-            <Image style={{resizeMode: "cover", flex: 1}} source={require("../../assets/images/unfinished-villa.jpg")}/>                          
+            <Image style={{resizeMode: props.resizeMode || "cover", flex: 1}}
+                   source={props.image || require("../../assets/images/unfinished-villa.jpg")}/>
           </View>
           <View style={styles.slide}>
-            <Image style={{resizeMode: "cover", flex: 1}} source={require("../../assets/images/unfinished-villa.jpg")}/>                          
+            <Image style={{resizeMode: props.resizeMode || "cover", flex: 1}}
+                   source={props.image || require("../../assets/images/unfinished-villa.jpg")}/>
           </View>
           <View style={styles.slide}>
-            <Image style={{resizeMode: "cover", flex: 1}} source={require("../../assets/images/unfinished-villa.jpg")}/>                          
+            <Image style={{resizeMode: props.resizeMode || "cover", flex: 1}}
+                   source={props.image || require("../../assets/images/unfinished-villa.jpg")}/>
           </View>
           <View style={styles.slide}>
-            <Image style={{resizeMode: "cover", flex: 1}} source={require("../../assets/images/unfinished-villa.jpg")}/>                          
+            <Image style={{resizeMode: props.resizeMode || "cover", flex: 1}}
+                   source={props.image || require("../../assets/images/unfinished-villa.jpg")}/>
           </View>
         </Swiper>
       </View>

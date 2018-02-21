@@ -5,7 +5,8 @@ import {
   Image,
   ScrollView,
   Dimensions,
-  Text
+  Text,
+  TouchableWithoutFeedback
 } from "react-native"
 import {
   Button,
@@ -16,41 +17,65 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { Actions } from "react-native-router-flux"
 import Carousel from "react-native-snap-carousel"
 import range from "lodash.range"
+import LinearGradient from "react-native-linear-gradient";
 
 import Header from "../Header/index"
+import Footer from "../Footer/index"
 import SearchBar from "../common/HeaderSearchBar"
+import ProductsList from "../ProductsList/index";
 
 import styles from "./styles"
 import cstyles from "../common/styles"
-import LinearGradient from "react-native-linear-gradient";
 
 export default class MarketPlace extends React.Component {
   state= {
-    entries: range(5)
+    entries: range(5),
+    productBookmarked: {
+      state: false,
+      index: null
+    }
+  }
+  loadMoreProducts = () => {
+
   }
   renderElement = () => {
     return  (
-      <LinearGradient style={styles.carrouselElm}
-        colors={['#5871B5', '#935CAE'] } start={{x: 0.0, y: 0.90}} end={{x: 0.90, y: 1.0}} >
-        <FontAwesome name="line-chart" size={50} color="#fff" />
-        <Text style={styles.carrouselText} >Today Prices</Text>
-      </LinearGradient>
+      <View>
+        <LinearGradient style={styles.carrouselElm}
+                        colors={['#5871B5', '#935CAE'] } start={{x: 0.0, y: 0.90}} end={{x: 0.90, y: 1.0}} >
+          <FontAwesome name="line-chart" size={50} color="#fff" />
+          <Text style={styles.carrouselText} >Today Prices</Text>
+        </LinearGradient>
+      </View>
     )
+  }
+  handleProductBookmark = (productIndex) => {
+    this.setState(state => ({
+      productBookmarked: {
+        state: !state.productBookmarked.state,
+        index: productIndex
+      }
+    }))
   }
   renderCategories = () => {
     return range(4).map((el, index) => {
       return (
-        <View key={index} style={styles.categoryCard} >
-          <Image source={{uri: "https://picsum.photos/200/300/?random"}} style={styles.categoryImage} />
-          <View style={styles.categoryMeta} >
-            <Text style={styles.categoryMetaTitle} >
-              Category Name
-            </Text>
-          </View>
+        <View style={styles.categoryCard} key={index}>
+          <TouchableWithoutFeedback onPress={() => Actions.category()}  >
+            <View style={{flex: 1}}>
+              <Image source={{uri: "https://picsum.photos/200/300/?random"}} style={styles.categoryImage} />
+              <View style={styles.categoryMeta} >
+                <Text style={styles.categoryMetaTitle} >
+                  Category Name
+                </Text>
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
       )
     })
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -82,7 +107,7 @@ export default class MarketPlace extends React.Component {
             data={this.state.entries}
             renderItem={this.renderElement}
             sliderWidth={Dimensions.get("window").width}
-            slideStyle={{marginHorizontal: 0}}
+            slideStyle={styles.carrouselElm}
             firstItem={2}
             inactiveSlideScale={1}
             activeSlideAlignment="center"
@@ -96,8 +121,11 @@ export default class MarketPlace extends React.Component {
                 this.renderCategories()
               }
             </View>
+            <Text style={styles.subTitle}>Our Products</Text>
+            <ProductsList/>
           </View>
         </ScrollView>
+        <Footer activeTab="market"/>
       </View>
     )
   }

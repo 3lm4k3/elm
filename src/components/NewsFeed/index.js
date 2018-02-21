@@ -13,18 +13,14 @@ import {
   Input,
   Thumbnail,
   H3,
-  Footer,
-  FooterTab,
-  Badge
 } from "native-base"
 import Icon from "react-native-vector-icons/Feather"
-import LineIcon from "react-native-vector-icons/SimpleLineIcons"
-import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 import Header from "../Header/index"
+import Footer from "../Footer/index"
 import NewStatus from "../NewStatus/index"
 import PostsList from "../PostsList/index"
 import SearchBar from "../common/HeaderSearchBar"
@@ -32,8 +28,6 @@ import Carrousel from "../common/Carrousel"
 
 import styles from "./styles"
 import cstyles from "../common/styles"
-
-import cstyles from "../common/style"
 
 
 const { width, height } = Dimensions.get('window')
@@ -108,30 +102,7 @@ export default class NewsFeed extends React.Component {
           <View style={styles.scrollIndicator} ref={ref => this.scrollIndicator = ref} ></View>
         </KeyboardAwareScrollView>
         { !showImageModal &&
-          <Footer style={cstyles.footer} >
-          <FooterTab style={cstyles.footerTab}>
-            <Button vertical>
-              <FontAwesome name="newspaper-o" size={30} color="#484848" />
-              <Text>Feeds</Text>
-            </Button>
-            <Button vertical onPress={()=> Actions.profiles()}>
-              <Icon name="users" size={30} color="#484848" />
-              <Text>Profiles</Text>
-            </Button>
-            <Button vertical>
-              <LineIcon name="tag" size={30} color="#484848"  />
-              <Text>Market</Text>
-            </Button>
-            <Button vertical onPress={()=> Actions.bids()}>
-              <Icon name="x" size={30} color="#484848" />              
-              <Text>Bids</Text>
-            </Button>
-            <Button vertical onPress={()=> Actions.more()}>
-              <Icon name="x" size={30} color="#484848" />              
-              <Text>More</Text>
-            </Button>
-            </FooterTab>
-        </Footer>
+          <Footer/>
         }
         {
           showImageModal &&

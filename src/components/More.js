@@ -5,7 +5,7 @@ import {Text,Dimensions, View,
 import { Actions,PARAMS } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from "./Header/index"
-import cstyles from "./common/style"
+import cstyles from "./common/styles"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
 import { List, ListItem } from "react-native-elements";

@@ -36,7 +36,7 @@ export default class HeaderSearchBar extends React.Component {
           <Animated.View style={[styles.inputWrapper, {width: animatedWidth}]}>
             <Icon name="search" size={25} style={styles.icon}/>
             <Input ref="input" onFocus={this.handleFocus} onBlur={this.handleBlur} placeholder="Search"
-                   onChangeText={this.props.onChangeText} style={styles.input}/>
+                   onChangeText={this.props.onChangeText || null } style={styles.input}/>
           </Animated.View>
         </TouchableHighlight>
       </View>

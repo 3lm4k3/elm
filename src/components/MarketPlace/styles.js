@@ -15,7 +15,7 @@ export default EstyleSheet.create({
   carrouselElm: {
     height: 200,
     width: 300,
-    marginHorizontal: 10,
+    marginHorizontal: 10 ,
     marginVertical: 15,
     justifyContent: "center",
     alignItems: "center",
@@ -40,12 +40,13 @@ export default EstyleSheet.create({
   categoryCard: {
     flexBasis: "48%",
     height: 175,
+    width: "100%",
     marginBottom: 15,
     elevation: 10,
+    backgroundColor: "#fff"
   },
   categoryImage: {
     flex: 1,
-
   },
   categoryMeta: {
     backgroundColor: "#fff",
@@ -53,9 +54,10 @@ export default EstyleSheet.create({
     bottom: 0,
     height: 50,
     width: "100%",
-    padding: 5
+    padding: 5,
   },
   categoryMetaTitle: {
     fontWeight: "bold"
-  }
+  },
+
 })

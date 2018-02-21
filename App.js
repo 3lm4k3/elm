@@ -1,6 +1,10 @@
 import React from 'react';
 import { Router, Scene, Lightbox } from "react-native-router-flux"
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './src/reducers';
+
 //
 import ImageLightBox from "react-native-lightbox"
 import Login from "./src/components/Login/index" // Login Component 
@@ -23,9 +27,9 @@ import PDFPage from "./src/components/PDFPage";
 import CategoryProsScreen from './src/components/CategoryPros';
 import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './src/reducers';
+import CategoryPage from "./src/components/CategoryPage/index"
+import ProductPage from "./src/components/ProductPage/index"
+
 
 export default class App extends React.Component {
   render() {
@@ -42,9 +46,10 @@ export default class App extends React.Component {
             <Scene key="more"  component={MoreScreen} title="more"/>
             <Scene key="calculator"  component={Calculator} title="Calculator"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
-            <Scene key="market" initial component={MarketPlace} title="MarketPlace"/>
+            <Scene key="market"  component={MarketPlace} title="MarketPlace"/>
+            <Scene key="category" component={CategoryPage} title="Category"/>
+            <Scene key="product" initial component={ProductPage} title="Product"/>
             {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
-            <Scene key="stocks" component={Stocks} title="Stocks"/>
             <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
             <Scene key="register"  component={FirstScreen} title="New Account"/>
             <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>

@@ -44,9 +44,9 @@ export default class Stocks extends React.Component {
       }
     ]
   }
-  // _renderItem = ({item, index}) => {
+  // _renderItem = ({item, index.js}) => {
   //   const { data } = this.state
-  //   if(index === 2) {
+  //   if(index.js === 2) {
   //     return (
   //       <View style={styles.card} >
   //         <LinearGradientView colors={["#5871B5", "#935CAE"]} style={{flex:1}} >
@@ -90,10 +90,10 @@ export default class Stocks extends React.Component {
   //               strokeWidth: "3"
   //           } }
   //           contentInset={ { top: 50, bottom: 25 } }
-  //           renderDecorator={ ({ x, y, index, value }) => (
+  //           renderDecorator={ ({ x, y, index.js, value }) => (
   //               <Circle
-  //                   key={ index }
-  //                   cx={ x(index) }
+  //                   key={ index.js }
+  //                   cx={ x(index.js) }
   //                   cy={ y(value) }
   //                   r={ 5 }
   //                   stroke={ '#5871B5' }

@@ -16,7 +16,7 @@ const { row, spaceBetween, center, bold } = cstyles
 export default (props) => {
   let { children, text, rippleColor, onPress, active, radius, style } = props
   const activeColor = props.activeColor || ['#5871B5', '#935CAE']
-  let defaultColor = props.defaultColor || ["#fff", "#fff"]
+  let defaultColor = props.color || ["#fff", "#fff"]
   if(props.transparent) defaultColor = ["transparent", "transparent"]
   radius = props.radius || 5
   

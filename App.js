@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Scene, Lightbox } from "react-native-router-flux"
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+//
 import ImageLightBox from "react-native-lightbox"
 import Login from "./src/components/Login/index" // Login Component 
 import NewsFeed from "./src/components/NewsFeed/index" // NewsFeed Component 
@@ -21,6 +21,7 @@ import ProfilesScreen from "./src/components/Profiles";
 import ReferencesScreen from "./src/components/References";
 import PDFPage from "./src/components/PDFPage";
 import CategoryProsScreen from './src/components/CategoryPros';
+import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -34,14 +35,17 @@ export default class App extends React.Component {
         <Lightbox>
           <Scene key="root" hideNavBar> 
             <Scene key="login"  component={Login} title="Login"/>
-            <Scene key="newsfeed" component={NewsFeed} title="NewsFeed"/>
+            <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
             <Scene key="bids"  component={Bids} title="Bids"/>
             <Scene key="bid" component={BidPage} title="Bid"/>
             <Scene key="createbid" component={CreateBid} title="Bid"/>
+            <Scene key="more"  component={MoreScreen} title="more"/>
             <Scene key="calculator"  component={Calculator} title="Calculator"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
             <Scene key="market" initial component={MarketPlace} title="MarketPlace"/>
             {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
+            <Scene key="stocks" component={Stocks} title="Stocks"/>
+            <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
             <Scene key="register"  component={FirstScreen} title="New Account"/>
             <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
             <Scene key="profiles" component={ProfilesScreen} title="Profiles"/>

@@ -114,7 +114,7 @@ export default class FirstScreen extends React.Component {
               
               <Image
               style={styles.socialLoginImage}
-              source={require('../assets/images/google.png')}
+              source={require('../assets/images/googleSignup.png')}
             
               />
             </TouchableOpacity>

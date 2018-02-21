@@ -6,6 +6,7 @@ import {Text, View,StyleSheet,TouchableHighlight,
 
 import Swiper from 'react-native-swiper';
 import { Actions,PARAMS } from 'react-native-router-flux';
+import LinearGradient from 'react-native-linear-gradient';
 
 const { width, height } = Dimensions.get('window')
 
@@ -29,10 +30,7 @@ export default class TakeTourScreen extends React.Component {
     	{
     	//adding an image to be the background for the swiped views 
     	}
-        <Image
-          source={require('../assets/images/purpleBackground.png')}
-          style={styles.imgBackground}
-        />
+        <LinearGradient colors={['#5871B5', '#935CAE']} style={styles.linearGradient}>
     	{
     		// Swiper container for the slide views
     	 
@@ -64,28 +62,34 @@ export default class TakeTourScreen extends React.Component {
             
           </View>
         </Swiper>
+        </LinearGradient>
     {/* End of the swiper view */}
 	{/* Login and Signup buttons for navigation through pages */}
         <TouchableHighlight
           style={styles.LoginButton}
-          onPress={() => Actions.register(PARAMS)}
+          onPress={() => Actions.login(PARAMS)}
           
           underlayColor='#fff'>
           <Text style={styles.LoginButtonText}>Login</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.SignupButton}
-          onPress={() => Actions.References(PARAMS)}
+          onPress={() => Actions.register(PARAMS)}
           underlayColor='#fff'>
           <Text style={styles.signupButtonText}>Sign up</Text>
         </TouchableHighlight>
+        
       </View>
     );
 	}
 }
 {/* styling for the view elements*/}
 var styles = StyleSheet.create({
-	
+	linearGradient:{
+    
+    height:height*0.70,
+      
+  },
   wrapper: {
     // backgroundColor: '#f00'
 
@@ -93,11 +97,11 @@ var styles = StyleSheet.create({
 LoginButton:{
     marginRight:40,
     marginLeft:40,
-    marginTop:10,
+    marginTop:26,
     marginBottom:10,
     paddingTop:20,
     paddingBottom:20,
-    backgroundColor:'#8671AE',
+    backgroundColor:'#935CAE',
     borderRadius:300,
     borderWidth: 1,
     borderColor: '#fff',
@@ -111,10 +115,10 @@ LoginButton:{
     marginRight:40,
     marginLeft:40,
     marginTop:10,
-    marginBottom:10,
+    marginBottom:26,
     paddingTop:20,
     paddingBottom:20,
-    backgroundColor:'#5279B1',
+    backgroundColor:'#5871B5',
     borderRadius:300,
     borderWidth: 1,
     borderColor: '#fff',
@@ -140,6 +144,7 @@ LoginButton:{
   },
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
 
   imgBackground: {

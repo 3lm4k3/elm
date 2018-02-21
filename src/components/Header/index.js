@@ -9,6 +9,8 @@ import {
 } from "react-native"
 import Icon from 'react-native-vector-icons/Feather';
 
+import { Actions } from 'react-native-router-flux';
+
 import cstyles from "../common/styles"
 
 export default class extends React.Component {
@@ -21,7 +23,7 @@ export default class extends React.Component {
           children ? children :
             <View style={styles.headerContent} >
               <View style={cstyles.left}>
-                <Button transparent >
+                <Button transparent onPress={() => Actions.pop()} >
                   <Icon name="arrow-left" size={30} color="#fff" />
                 </Button>
               </View>

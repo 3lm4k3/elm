@@ -1,11 +1,11 @@
 import React from 'react';
-import { View,Text,Image } from 'react-native';
+import { View,Text,Image,ImageBackground } from 'react-native';
 import StarRating from './StarRating';
 
 const ProjCard = (props) => {
 	return (
 		<View style={styles.containerStyle}>
-			<Image style={styles.image} source={props.icon} >
+			<ImageBackground style={styles.image} source={props.icon} >
 				<View style={{flexDirection:'row'}}>
 					<Image style={styles.seenProj} source={require('../../assets/images/google.png')}></Image>
 					<Text style={styles.seenNumText}>{props.seenNum}</Text>
@@ -13,7 +13,7 @@ const ProjCard = (props) => {
 					
 				</View>
 
-			</Image>
+			</ImageBackground>
 
 			<Text style={styles.textStyle} >{props.headerText}</Text>
 			<View style={{flexDirection:'row', marginLeft:18}}>

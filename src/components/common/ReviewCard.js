@@ -28,8 +28,8 @@ const ReviewCard = (props) => {
 				maxStars={5}
 			    rating={props.ratingStars}
 			    starSize={10}
-			    selectStar={require('../../assets/images/select_star.png')}
-			    unSelectStar={require('../../assets/images/unselect_star.png')}
+			    selectStar={require('../../assets/images/review-rating-full.png')}
+			    unSelectStar={require('../../assets/images/view-rating-empty.png')}
 			    valueChanged={this._valueChanged}
 
 			    />

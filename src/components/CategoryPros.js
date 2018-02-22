@@ -35,13 +35,16 @@ export default class CategoryProsScreen extends React.Component {
 	render(){
 		const {filterToggle,sortToggle} = this.state;
 
-	    const filterTextValue = "Filter    ٧";
+	    const filterTextValue = "Filter";
 	    const filterButtonBackground = filterToggle?"transparent":"#F7F7F7";
 	    const filterTextColor = filterToggle?'white':'#6D66AF';
-
-	    const sortTextValue = "Sort    ٧";
+	    const filterIcon = filterToggle? require('../assets/images/Dropdown-arrow-white.png')
+								  : require('../assets/images/dropdown-arrow-purple.png');
+	    const sortTextValue = "Sort";
 	    const sortButtonBackground = sortToggle?"transparent":"#F7F7F7";
 	    const sortTextColor = sortToggle?'white':'#6D66AF';
+	    const sortIcon = sortToggle? require('../assets/images/Dropdown-arrow-white.png')
+								  : require('../assets/images/dropdown-arrow-purple.png');
 
 		const { textStyle,viewStyle,back,search,title,
 				firstIntersetBtn, 
@@ -58,7 +61,7 @@ export default class CategoryProsScreen extends React.Component {
 				            onPress={() => Actions.pop()}
 				         > 
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Back-arrow.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -73,7 +76,7 @@ export default class CategoryProsScreen extends React.Component {
 				            onPress={() => Actions.pop()}
 				         > 
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Notification-active.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -86,6 +89,8 @@ export default class CategoryProsScreen extends React.Component {
 				              >
 				              <Text style={[firstIntersetText,{color:filterTextColor}]}>{filterTextValue}</Text>
 
+								<Image source={filterIcon} />
+
 				            </TouchableOpacity>
 				        </LinearGradient>
 
@@ -95,7 +100,7 @@ export default class CategoryProsScreen extends React.Component {
 				                style={[firstIntersetBtn,{backgroundColor:sortButtonBackground}]}
 				              >
 				              <Text style={[firstIntersetText,{color:sortTextColor}]}>{sortTextValue}</Text>
-
+				              <Image source={sortIcon} />
 				            </TouchableOpacity>
 				        </LinearGradient>
 			        </View>
@@ -109,7 +114,7 @@ export default class CategoryProsScreen extends React.Component {
               </View>
 				</ScrollView>
 
-
+				
 
 			</View>
 
@@ -169,11 +174,12 @@ const styles = {
 
 	    borderWidth: 1,
 	    borderRadius:5,
-	    justifyContent: 'center',
+	    justifyContent: 'space-around',
 	    alignItems: 'center',
 	    
-	    
+	    flexDirection:'row',
 	    width:108,
+
 	    height:29,
 	    borderColor: '#fff',
 	    

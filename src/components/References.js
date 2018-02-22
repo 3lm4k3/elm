@@ -17,7 +17,7 @@ import reducers from '../reducers';
 
 import { Button,Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
 export default class ReferencesScreen extends React.Component {
-
+ 
 	render(){
 		const { textStyle,viewStyle,back,search,title,referenceType,executionTitle } = styles;
 		return(
@@ -31,7 +31,7 @@ export default class ReferencesScreen extends React.Component {
 				            onPress={() => Actions.pop()}
 				         > 
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Back-arrow.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -46,7 +46,7 @@ export default class ReferencesScreen extends React.Component {
 				            onPress={() => Actions.pop()}
 				         > 
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Notification-active.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>

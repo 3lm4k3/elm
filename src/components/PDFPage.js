@@ -12,6 +12,7 @@ import {Text,Dimensions, View,
 const RNFS = require('react-native-fs');
 const downloadUrl = 'https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf';
 let jobId = -1;
+const { width, height } = Dimensions.get('window')
  export default class PDFPage extends React.Component {
  	constructor(props) {
     super(props);
@@ -77,9 +78,9 @@ let jobId = -1;
 				            style={back}
 
 				            onPress={() => Actions.pop()}
-				         > 
+				         >  
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Back-arrow.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -99,11 +100,13 @@ let jobId = -1;
 				            </Image>
 		          		</TouchableOpacity>
 					</View>
- 				 <WebView
-		          source={{uri:this.props.pdfLink}}
-		         
-		          style={{marginTop: 20,width:342,marginLeft:16,marginBottom:19}}
-		        />
+					
+	 				 <WebView
+			          source={{uri:this.props.pdfLink}}
+			         
+			          style={{marginTop: 20,width:width*0.8,marginLeft:width*0.1,marginBottom:19}}
+			        />
+		        	
  			</View>
  			);
  	}

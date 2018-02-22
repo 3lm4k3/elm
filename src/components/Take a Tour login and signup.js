@@ -65,6 +65,7 @@ export default class TakeTourScreen extends React.Component {
         </LinearGradient>
     {/* End of the swiper view */}
 	{/* Login and Signup buttons for navigation through pages */}
+    <View style={{justifyContent:'space-around',alignItems:'center'}}>
         <TouchableHighlight
           style={styles.LoginButton}
           onPress={() => Actions.login(PARAMS)}
@@ -78,7 +79,7 @@ export default class TakeTourScreen extends React.Component {
           underlayColor='#fff'>
           <Text style={styles.signupButtonText}>Sign up</Text>
         </TouchableHighlight>
-        
+        </View>
       </View>
     );
 	}
@@ -95,9 +96,9 @@ var styles = StyleSheet.create({
 
   },
 LoginButton:{
-    marginRight:40,
-    marginLeft:40,
-    marginTop:26,
+    
+    
+    marginTop:height*0.06,
     marginBottom:10,
     paddingTop:20,
     paddingBottom:20,
@@ -105,15 +106,15 @@ LoginButton:{
     borderRadius:300,
     borderWidth: 1,
     borderColor: '#fff',
-    width:300,
+    width:width*0.8,
 
     justifyContent: 'center',
     alignItems: 'center',
 
   },
   SignupButton:{
-    marginRight:40,
-    marginLeft:40,
+    
+    
     marginTop:10,
     marginBottom:26,
     paddingTop:20,
@@ -122,7 +123,7 @@ LoginButton:{
     borderRadius:300,
     borderWidth: 1,
     borderColor: '#fff',
-    width:300,
+    width:width*0.8,
     justifyContent: 'center',
     alignItems: 'center',
 

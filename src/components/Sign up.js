@@ -49,7 +49,9 @@ export default class FirstScreen extends React.Component {
             onPress={() => Actions.pop()}
           > 
             <Image
-               source={require('../assets/images/prices.png')}
+
+               source={require('../assets/images/back-arrow-white.png')}
+               
             ></Image>
           </TouchableOpacity>
           <Text style={styles.headerText}>New Account</Text>
@@ -89,7 +91,7 @@ export default class FirstScreen extends React.Component {
               {/*social media login icon*/}
               <Image
               style={styles.socialLoginImage}
-              source={require('../assets/images/facebook.png')}
+              source={require('../assets/images/FB-logo.png')}
             
               />
             </TouchableOpacity>
@@ -114,7 +116,7 @@ export default class FirstScreen extends React.Component {
               
               <Image
               style={styles.socialLoginImage}
-              source={require('../assets/images/googleSignup.png')}
+              source={require('../assets/images/google-icon.png')}
             
               />
             </TouchableOpacity>
@@ -225,11 +227,15 @@ const styles = StyleSheet.create({
     
   },
   back:{
-    marginLeft:20,
+    width:width*0.3,
+    marginLeft:width*0.08
   },
   header:{
     marginTop:32,
     flexDirection:'row',
+    
+
+
 
     
   },
@@ -237,7 +243,8 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     fontSize:17,
     color:'white',
-    marginLeft:width*0.15,
+    
+    width:width*0.5
 
 
 

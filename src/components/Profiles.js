@@ -46,14 +46,14 @@ export default class ProfilesScreen extends React.Component {
 			            onPress={() => Actions.pop()}
 			         > 
 			            <Image
-			               source={require('../assets/images/prices.png')}
+			               source={require('../assets/images/Notification-active.png')}
 			            >
 			            </Image>
 	          		</TouchableOpacity>
 				</View>
 				<ScrollView>
 					<Text style={title}>Pros Category</Text>
-					<View style={{ flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+					<View style={{ flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}>
 						<TouchableOpacity
 							onPress={() => Actions.CategoryProsScreen(PARAMS)}
 						>
@@ -73,7 +73,7 @@ export default class ProfilesScreen extends React.Component {
 							</CategoryCard>
 						</TouchableOpacity>
 					</View>
-					<View style={{ flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+					<View style={{ flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}>
 						<TouchableOpacity
 							onPress={() => Actions.CategoryProsScreen(PARAMS)}
 						>

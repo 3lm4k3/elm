@@ -11,25 +11,22 @@ import {
   Thumbnail
 } from "native-base"
 import { Actions } from "react-native-router-flux"
-import { AreaChart } from 'react-native-svg-charts'
-import { Circle } from 'react-native-svg'
+
 import Icon from "react-native-vector-icons/Feather"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import LinearGradientView from "react-native-linear-gradient"
 import Carousel from 'react-native-snap-carousel';
 
 import Header from "../Header/index"
 import SearchBar from "../common/HeaderSearchBar"
 import DropdownSubNavBar from "../common/SubNavBar"
 import Picker from "../common/Picker"
+import StocksList from "../StocksList/index";
 
 import styles from "./styles"
 import cstyles from "../common/style"
 
 export default class Stocks extends React.Component {
   state = {
-    data: [ 4,3,5,6,5, 8 ],
     entries: [
       {
         title: "Steel",
@@ -41,74 +38,77 @@ export default class Stocks extends React.Component {
       },
       {
         // empty object for the last component
+      },
+      {
+
       }
     ]
   }
-  _renderItem = ({item, index}) => {
-    const { data } = this.state
-    if(index === 2) {
-      return (
-        <View style={styles.card} >
-          <LinearGradientView colors={["#5871B5", "#935CAE"]} style={{flex:1}} >
-            <View style={{justifyContent: "center", alignItems: "center", flex: 1}}>
-              <Icon name="layers" size={50} color="#fff" />
-              <Text style={{color: "#fff", fontSize: 18}}>Material</Text>
-              <Text style={{color:"#fff", fontSize: 10}}>Today Avarage, 26 Dec.</Text>
-            </View>
-          </LinearGradientView>
-        </View>
-      )
-    }
-    return (
-      <View style={styles.card} >
-        <View style={styles.meta}>
-          <MaterialCommunityIcons name="hexagon" size={30} color="#5871B5" />
-          <Text style={{color: "#5871B5", fontSize: 18}} >{item.title}</Text>
-          <Text style={{color:"#484848", fontSize: 10}} >Today Avarage, 26 Dec.</Text>
-        </View>
-        <View style={styles.stockData} >
-            <View style={{flexDirection: "row"}} >
-              {
-                item.up ? <FontAwesome name="caret-up" size={30} color="#76DB6E" /> :
-                  <FontAwesome name="caret-down" size={30} color="#FE8080" />
-              }
-              <Text style={styles.stockPrice} >EGP 1,500</Text>
-            </View>
-            <Text style={[styles.stockPercentage, item.up && {color: "#76DB6E"}]} >-0.11%</Text>
-        </View>
-        <View style={styles.gradient} >
-          <LinearGradientView colors={["rgba(88,113,181,0.2)", "#FFFFFF"]} 
-            start={{x: 0.0, y: 0.0}} end={{x: 0.0, y: 1.0}} style={{flex: 1}} />
-        </View> 
-        <AreaChart
-            style={ { height: 100, marginBottom: 35 } }
-            dataPoints={ data }
-            showGrid={false}
-            svg={ {
-                fill: 'rgba(88,113,181,0.2)',
-                stroke: '#5871B5',
-                strokeWidth: "3"
-            } }
-            contentInset={ { top: 50, bottom: 25 } }
-            renderDecorator={ ({ x, y, index, value }) => (
-                <Circle
-                    key={ index }
-                    cx={ x(index) }
-                    cy={ y(value) }
-                    r={ 5 }
-                    stroke={ '#5871B5' }
-                    fill={ 'white' }
-                    strokeWidth={3}
-                    shadowSvg={{
-                        stroke: 'rgba(134, 65, 244, 0.2)',
-                        strokeWidth: 5,
-                    }}
-                />
-            ) }
-        />
-      </View>
-    );
-  }
+  // _renderItem = ({item, index.js}) => {
+  //   const { data } = this.state
+  //   if(index.js === 2) {
+  //     return (
+  //       <View style={styles.card} >
+  //         <LinearGradientView colors={["#5871B5", "#935CAE"]} style={{flex:1}} >
+  //           <View style={{justifyContent: "center", alignItems: "center", flex: 1}}>
+  //             <Icon name="layers" size={50} color="#fff" />
+  //             <Text style={{color: "#fff", fontSize: 18}}>Material</Text>
+  //             <Text style={{color:"#fff", fontSize: 10}}>Today Avarage, 26 Dec.</Text>
+  //           </View>
+  //         </LinearGradientView>
+  //       </View>
+  //     )
+  //   }
+  //   return (
+  //     <View style={styles.card} >
+  //       <View style={styles.meta}>
+  //         <MaterialCommunityIcons name="hexagon" size={30} color="#5871B5" />
+  //         <Text style={{color: "#5871B5", fontSize: 18}} >{item.title}</Text>
+  //         <Text style={{color:"#484848", fontSize: 10}} >Today Avarage, 26 Dec.</Text>
+  //       </View>
+  //       <View style={styles.stockData} >
+  //           <View style={{flexDirection: "row"}} >
+  //             {
+  //               item.up ? <FontAwesome name="caret-up" size={30} color="#76DB6E" /> :
+  //                 <FontAwesome name="caret-down" size={30} color="#FE8080" />
+  //             }
+  //             <Text style={styles.stockPrice} >EGP 1,500</Text>
+  //           </View>
+  //           <Text style={[styles.stockPercentage, item.up && {color: "#76DB6E"}]} >-0.11%</Text>
+  //       </View>
+  //       <View style={styles.gradient} >
+  //         <LinearGradientView colors={["rgba(88,113,181,0.2)", "#FFFFFF"]}
+  //           start={{x: 0.0, y: 0.0}} end={{x: 0.0, y: 1.0}} style={{flex: 1}} />
+  //       </View>
+  //       <AreaChart
+  //           style={ { height: 100, marginBottom: 35 } }
+  //           dataPoints={ data }
+  //           showGrid={false}
+  //           svg={ {
+  //               fill: 'rgba(88,113,181,0.2)',
+  //               stroke: '#5871B5',
+  //               strokeWidth: "3"
+  //           } }
+  //           contentInset={ { top: 50, bottom: 25 } }
+  //           renderDecorator={ ({ x, y, index.js, value }) => (
+  //               <Circle
+  //                   key={ index.js }
+  //                   cx={ x(index.js) }
+  //                   cy={ y(value) }
+  //                   r={ 5 }
+  //                   stroke={ '#5871B5' }
+  //                   fill={ 'white' }
+  //                   strokeWidth={3}
+  //                   shadowSvg={{
+  //                       stroke: 'rgba(134, 65, 244, 0.2)',
+  //                       strokeWidth: 5,
+  //                   }}
+  //               />
+  //           ) }
+  //       />
+  //     </View>
+  //   );
+  // }
   render() {
     const { data, entries } = this.state
     return (
@@ -140,18 +140,21 @@ export default class Stocks extends React.Component {
         {/* </DropdownSubNavBar> */}
         <View style={styles.content} >
           <Text style={styles.subTitle} >Overview</Text>
-          <Carousel
-            ref={(c) => { this._carousel = c; }}
-            data={entries}
-            renderItem={this._renderItem}
-            sliderWidth={Dimensions.get("window").width}
-            itemWidth={175}
-            containerCustomStyle={{marginVertical: 25}}
-            activeSlideAlignment="start"
-            contentContainerCustomStyle={{marginLeft: 25}}
-            inactiveSlideScale={0.8}
-            
-          />
+          {/*<Carousel*/}
+            {/*ref={(c) => { this._carousel = c; }}*/}
+            {/*data={entries}*/}
+            {/*renderItem={this._renderItem}*/}
+            {/*sliderWidth={Dimensions.get("window").width}*/}
+            {/*itemWidth={175}*/}
+            {/*containerCustomStyle={{marginVertical: 25}}*/}
+            {/*activeSlideAlignment="start"*/}
+            {/*contentContainerCustomStyle={{marginLeft: 25}}*/}
+            {/*inactiveSlideScale={0.8}*/}
+            {/**/}
+          {/*/>*/}
+          <View style={{backgroundColor: "rebeccapurple"}} >
+            <StocksList stocks={entries}/>
+          </View>
           <View style={styles.brandsList} >
             <Text style={styles.subTitle} >Brands</Text>
             <View style={{

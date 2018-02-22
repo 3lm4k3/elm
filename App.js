@@ -1,6 +1,10 @@
 import React from 'react';
 import { Router, Scene, Lightbox } from "react-native-router-flux"
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './src/reducers';
+
 //
 import ImageLightBox from "react-native-lightbox"
 import Login from "./src/components/Login/index" // Login Component 
@@ -10,6 +14,7 @@ import BidPage from "./src/components/BidPage/index" // BidPage Component
 import CreateBid from "./src/components/CreateBid/index" // NewsFeed Component 
 import Calculator from "./src/components/Calculator/index" // Calculator Component 
 import Stocks from "./src/components/Stocks/index" // Calculator Component 
+import MarketPlace from "./src/components/MarketPlace/index" // Calculator Component
 //first Login Screen
 import FirstScreen from "./src/components/Sign up";
 //second Login Screen
@@ -24,9 +29,9 @@ import CalculationsScreen from './src/components/Calculations'
 import MembershipScreen from './src/components/Membership'
 import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './src/reducers';
+import CategoryPage from "./src/components/CategoryPage/index"
+import ProductPage from "./src/components/ProductPage/index"
+
 
 export default class App extends React.Component {
   render() {
@@ -43,8 +48,16 @@ export default class App extends React.Component {
             <Scene key="more"  component={MoreScreen} title="more"/>
             <Scene key="membership"  component={MembershipScreen} title="membership"/>
             <Scene key="calculator"  component={Calculator} title="Calculator"/>
+
             <Scene key="calculations"  component={CalculationsScreen} title="calculations"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
+
+            <Scene key="stocks"  component={Stocks} title="Stocks"/>
+            <Scene key="market"  component={MarketPlace} title="MarketPlace"/>
+            <Scene key="category" component={CategoryPage} title="Category"/>
+            <Scene key="product"  component={ProductPage} title="Product"/>
+            {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
+
             <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
             <Scene key="register"  component={FirstScreen} title="New Account"/>
             <Scene key="home"  component={AfterSignupScreen} title="AfterSignupScreen"/>
@@ -52,7 +65,11 @@ export default class App extends React.Component {
             <Scene key="pdfPage"  component={PDFPage} title="pdfPage"/>
             <Scene key="References"  component={ReferencesScreen} title="References"/>
             <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
-            <Scene key="CategoryProsScreen"   component={CategoryProsScreen} title="CategoryProsScreen"/>
+
+            <Scene key="CategoryProsScreen" initial  component={CategoryProsScreen} title="CategoryProsScreen"/>
+
+            <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
+
           </Scene>
 
           {/* Lightbox components will lay over the screen, allowing transparency*/}

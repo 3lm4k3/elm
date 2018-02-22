@@ -106,13 +106,19 @@ export default StyleSheet.create({
     borderColor: "transparent"
   },
   footer: {
-    borderTopWidth: 1,
+    borderTopWidth: 0,
     borderTopColor: "#ABABAB",
-    height: 60
+    height: 60,
+    elevation: 10
   },
   footerTab: {
     backgroundColor: "#F7F7F7",
     paddingTop: 5
 
+  },
+  subTitle: {
+    fontSize: 22,
+    color: "#935CAE",
+    fontWeight: "bold"
   },
 })

@@ -12,7 +12,7 @@ import Icon from "react-native-vector-icons/Feather"
 import Ripple from 'react-native-material-ripple';
 
 
-import cstyles from "../common/style"
+import cstyles from "./style"
 
 export default class PickerComponent extends React.Component {
   state = {

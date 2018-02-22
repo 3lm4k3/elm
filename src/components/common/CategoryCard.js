@@ -4,9 +4,11 @@ import StarRating from './StarRating';
 const { width, height } = Dimensions.get('window')
 showStars = (stars,ratingStars) => {
 
+
 	if(stars){
 	return(
 		<StarRating
+
 				maxStars={5}
 			    rating={ratingStars}
 			    starSize={10}
@@ -15,10 +17,9 @@ showStars = (stars,ratingStars) => {
 			    valueChanged={this._valueChanged}
 
 			    />
-
 		);
-	}
-}
+}}
+
 const CategoryCard = (props) => {
 	
 	return (

@@ -1,5 +1,4 @@
 import React from "react"
-
 import {
   View,
   Text,
@@ -8,7 +7,7 @@ import {
   StatusBar
 } from "react-native"
 import { Button } from "native-base"
-import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import ParallaxScrollView from 'react-native-parallax-scroll-view'
 import Icon from "react-native-vector-icons/Feather"
 import LinearGradient from "react-native-linear-gradient"
 import Ripple from 'react-native-material-ripple'

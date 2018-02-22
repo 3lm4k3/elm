@@ -8,7 +8,9 @@ import {
   StyleSheet
 } from "react-native"
 import Icon from 'react-native-vector-icons/Feather';
+
 import { Actions } from 'react-native-router-flux';
+
 import cstyles from "../common/style"
 
 export default class extends React.Component {
@@ -41,7 +43,8 @@ const styles = StyleSheet.create({
   Header: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
+    height: 60,
+    paddingVertical: 5,
     width: Dimensions.get("window").width,
   },
   headerContent: {

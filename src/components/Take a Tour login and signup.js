@@ -7,10 +7,10 @@ import {Text, View,StyleSheet,TouchableHighlight,
 import Swiper from 'react-native-swiper';
 import { Actions,PARAMS } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
-
+import { strings } from '../i18n';
 const { width, height } = Dimensions.get('window')
 
-
+ 
 export default class TakeTourScreen extends React.Component {
 
 	// customizing navigation page options :title
@@ -71,14 +71,14 @@ export default class TakeTourScreen extends React.Component {
           onPress={() => Actions.login(PARAMS)}
           
           underlayColor='#fff'>
-          <Text style={styles.LoginButtonText}>Login</Text>
+          <Text style={styles.LoginButtonText}>{strings('tour.login_Btn')}</Text>
         </TouchableHighlight>
         
         <TouchableHighlight
           style={styles.SignupButton}
           onPress={() => Actions.register(PARAMS)}
           underlayColor='#fff'>
-          <Text style={styles.signupButtonText}>Sign up</Text>
+          <Text style={styles.signupButtonText}>{strings('tour.signup_Btn')}</Text>
         </TouchableHighlight>
 
         

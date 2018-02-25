@@ -1,0 +1,18 @@
+{
+  "tour": {
+    "login_Btn": "تسجيل",
+    "signup_Btn": "إنشاء حساب"
+  },
+  "signup":{
+  	"header_Txt":"حساب جديد",
+  	"haveAccount_Btn":"لدي حساب بالفعل تسجيل الان",
+  	"connectWith_Txt":"الدخول باستخدام",
+  	"accountInfo_Txt":"معلومات الحساب",
+  	"firstName_Txt":"الاسم الاول",
+  	"lastName_Txt":"الاسم الاخير",
+  	"email_Txt":"البريد الالكتروني",
+  	"password_Txt":"كلمة السر",
+  	"termsNConditions_Txt":"اوافق علي الشروط",
+  	"createAccount_Txt":"عمل حساب جديد",
+  },
+}

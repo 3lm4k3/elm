@@ -8,10 +8,11 @@ import {Text,Dimensions, View,
   TouchableHighlight,FlatList,WebView} from 'react-native';
  import { Actions,PARAMS } from 'react-native-router-flux';
 //  import Pdf from 'react-native-pdf';
-
+/*
 const RNFS = require('react-native-fs');
 const downloadUrl = 'https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf';
 let jobId = -1;
+*/
 const { width, height } = Dimensions.get('window')
  export default class PDFPage extends React.Component {
  	constructor(props) {
@@ -22,7 +23,7 @@ const { width, height } = Dimensions.get('window')
       };
     
   }
-  
+  /*
   downloadFileTest (background, url) {
     if (jobId !== -1) {
       this.setState({ output: 'A download is already in progress' });
@@ -67,6 +68,10 @@ const { width, height } = Dimensions.get('window')
     this.setState({ output: `ERROR: Code: ${err.code} Message: ${err.message}` });
     console.log('not completed')
   }
+
+onPress={this.downloadFileTest.bind(this, true, downloadUrl) }}
+
+  */
  	render(){
  		const source = {uri:'https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf'};
  		const { viewStyle,back,download,downloadImage} = styles;
@@ -90,7 +95,7 @@ const { width, height } = Dimensions.get('window')
 		            
 				            style={download}
 
-				            onPress={this.downloadFileTest.bind(this, true, downloadUrl) }
+				            
 				         > 
 				            <Image
 				               source={require('../assets/images/prices.png')}

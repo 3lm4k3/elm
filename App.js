@@ -54,7 +54,7 @@ export default class App extends React.Component {
 
             <Scene key="calculations"  component={CalculationsScreen} title="calculations"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
-            <Scene key="terms" initial component={TermsScreen} title="terms"/>
+            <Scene key="terms"  component={TermsScreen} title="terms"/>
             
             <Scene key="market"  component={MarketPlace} title="MarketPlace"/>
             <Scene key="category"  component={CategoryPage} title="Category"/>
@@ -64,7 +64,7 @@ export default class App extends React.Component {
             <Scene key="codes"  component={CodesScreen} title="codes" />
             <Scene key="finishing"  component={FinishingScreen} title="finishing" />
             <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
-            <Scene key="register"   component={FirstScreen} title="New Account"/>
+            <Scene key="register"  initial component={FirstScreen} title="New Account"/>
             <Scene key="home"  component={AfterSignupScreen} title="AfterSignupScreen"/>
             <Scene key="profiles"  component={ProfilesScreen} title="Profiles"/>
             <Scene key="pdfPage"  component={PDFPage} title="pdfPage"/>

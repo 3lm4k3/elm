@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View,StyleSheet,TouchableHighlight,
   Image,
-  Dimensions,
-  StatusBar,} from 'react-native';
+  Dimensions,TouchableOpacity,
+  StatusBar} from 'react-native';
 
 import Swiper from 'react-native-swiper';
 import { Actions,PARAMS } from 'react-native-router-flux';
@@ -73,13 +73,17 @@ export default class TakeTourScreen extends React.Component {
           underlayColor='#fff'>
           <Text style={styles.LoginButtonText}>Login</Text>
         </TouchableHighlight>
+        
         <TouchableHighlight
           style={styles.SignupButton}
           onPress={() => Actions.register(PARAMS)}
           underlayColor='#fff'>
           <Text style={styles.signupButtonText}>Sign up</Text>
         </TouchableHighlight>
+
+        
         </View>
+        
       </View>
     );
 	}
@@ -95,10 +99,11 @@ var styles = StyleSheet.create({
     // backgroundColor: '#f00'
 
   },
+  
 LoginButton:{
     
     
-    marginTop:height*0.06,
+    marginTop:height*0.02,
     marginBottom:10,
     paddingTop:20,
     paddingBottom:20,
@@ -112,6 +117,7 @@ LoginButton:{
     alignItems: 'center',
 
   },
+  
   SignupButton:{
     
     

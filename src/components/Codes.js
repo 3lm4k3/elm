@@ -13,19 +13,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import PDFList from './PDFList';
 import reducers from '../reducers';
-import {
-  Button,
-  Thumbnail,
-  Tab,TabHeading,
-  Footer,
-  FooterTab} from "native-base";
-import cstyles from "./common/style"
-import FontAwesome from "react-native-vector-icons/FontAwesome"
-import LineIcon from "react-native-vector-icons/SimpleLineIcons"
-import Icon from "react-native-vector-icons/Feather"
 
 import { Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
-export default class ReferencesScreen extends React.Component {
+export default class CodesScreen extends React.Component {
  
 	render(){
 		const { textStyle,viewStyle,back,search,title,referenceType,executionTitle } = styles;
@@ -61,7 +51,7 @@ export default class ReferencesScreen extends React.Component {
 		          		</TouchableOpacity>
 					</View>
 
-					<Text style={referenceType}>Execution</Text>
+					<Text style={referenceType}>Codes</Text>
 
 
 				</View>
@@ -76,7 +66,6 @@ export default class ReferencesScreen extends React.Component {
               		</View>
 				</ScrollView>
 				
-
 			</View>
 
 			);

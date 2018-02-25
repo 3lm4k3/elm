@@ -181,9 +181,14 @@ export default class FirstScreen extends React.Component {
                 
                 checked={this.state.checked}
               />
-              <Text
-                style={styles.termsNConditionsStyleTxt}
-              > I Agree on terms & conditions</Text>
+              <TouchableOpacity
+                onPress={() => Actions.terms(PARAMS)}
+              >
+                <Text
+                  style={styles.termsNConditionsStyleTxt}
+                > I Agree on terms & conditions</Text>
+
+              </TouchableOpacity>
             </View>
 
 

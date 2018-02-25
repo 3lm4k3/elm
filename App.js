@@ -19,14 +19,17 @@ import MarketPlace from "./src/components/MarketPlace/index" // Calculator Compo
 import FirstScreen from "./src/components/Sign up";
 //second Login Screen
 import TakeTourScreen from "./src/components/Take a Tour login and signup";
-
+import TermsScreen from "./src/components/TermsNConditions"
 import AfterSignupScreen from "./src/components/AfterSignup";
 import ProfilesScreen from "./src/components/Profiles";
 import ReferencesScreen from "./src/components/References";
 import PDFPage from "./src/components/PDFPage";
+import CodesScreen from "./src/components/Codes";
 import CategoryProsScreen from './src/components/CategoryPros';
 import CalculationsScreen from './src/components/Calculations'
 import MembershipScreen from './src/components/Membership'
+import VerficationScreen from './src/components/Verfication'
+import FinishingScreen from './src/components/Finishing'
 import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
 import CategoryPage from "./src/components/CategoryPage/index"
@@ -51,24 +54,25 @@ export default class App extends React.Component {
 
             <Scene key="calculations"  component={CalculationsScreen} title="calculations"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
-
-            <Scene key="stocks"  component={Stocks} title="Stocks"/>
+            <Scene key="terms" initial component={TermsScreen} title="terms"/>
+            
             <Scene key="market"  component={MarketPlace} title="MarketPlace"/>
-            <Scene key="category" component={CategoryPage} title="Category"/>
+            <Scene key="category"  component={CategoryPage} title="Category"/>
+            <Scene key="verfication"  component={VerficationScreen} title="verfication"/>
             <Scene key="product"  component={ProductPage} title="Product"/>
             {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
-
+            <Scene key="codes"  component={CodesScreen} title="codes" />
+            <Scene key="finishing"  component={FinishingScreen} title="finishing" />
             <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
-            <Scene key="register"  component={FirstScreen} title="New Account"/>
+            <Scene key="register"   component={FirstScreen} title="New Account"/>
             <Scene key="home"  component={AfterSignupScreen} title="AfterSignupScreen"/>
             <Scene key="profiles"  component={ProfilesScreen} title="Profiles"/>
             <Scene key="pdfPage"  component={PDFPage} title="pdfPage"/>
             <Scene key="References"  component={ReferencesScreen} title="References"/>
             <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
 
-            <Scene key="CategoryProsScreen" initial  component={CategoryProsScreen} title="CategoryProsScreen"/>
+            <Scene key="CategoryProsScreen"   component={CategoryProsScreen} title="CategoryProsScreen"/>
 
-            <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
 
           </Scene>
 

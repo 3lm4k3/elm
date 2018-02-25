@@ -130,6 +130,7 @@ const { width, height } = Dimensions.get('window')
 	back:{
 		width:188,
 		height:44,
+		marginLeft:16,
 	},
 	download:{
 		width:188,

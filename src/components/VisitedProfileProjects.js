@@ -18,6 +18,10 @@ import {
   Tab,TabHeading,
   Footer,
   FooterTab} from "native-base";
+import cstyles from "./common/style"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
+import LineIcon from "react-native-vector-icons/SimpleLineIcons"
+import Icon from "react-native-vector-icons/Feather"
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -34,7 +38,7 @@ export default class VisitedProfileProjectsScreen extends React.Component {
     super(props);
     //saving the checked button state for the terms & conditions to be true or false
     
-    this.state = { userOnline:true,normalUser:true,
+    this.state = { userOnline:true,normalUser:false,
     	wallToggle:false,aboutToggle:false,projectsToggle:true,moreToggle:false,
 
     	 data: [	{key:1,title: 'Post title goes here',subtitle:'Title goes here',date:'December 12 at 5:30 PM',avatar:require('../assets/images/abdo.png'),page:() => Actions.bids()},
@@ -70,7 +74,7 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 				followingNum,followingText,wallTxt,aboutTxt,projectsTxt,moreTxt,
 			linearGradient,userName,yellowSeparator,whiteSeparator,
 			userProfilePic,ratingStyle,profession,wallBtn,moreBtn,aboutBtn,projectsBtn,
-			intro,addressPointsTitle,actualAddress,points,tabsText,skillName,skillButton,bookmarkTitle,bookmarkSubtitle,bookmarkDate } = styles;
+			intro,addressPointsTitle,actualAddress,stepsLeftTxt,points,stepsLeft,tabsText,skillName,skillButton,bookmarkTitle,bookmarkSubtitle,bookmarkDate } = styles;
 		if(normalUser){
 			return(
 				<ScrollView>
@@ -103,7 +107,7 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 			          />
 
 			        
-			        <Tabs transparent={true} style={{justifyContent:'space-around',marginLeft:16}}>
+			        <Tabs transparent={true} >
 			        	<Tab heading={<TabHeading style={{backgroundColor:'transparent'}}><Text style={tabsText}>Wall</Text></TabHeading>}  style={{ backgroundColor:'transparent'}}>
 			        		<Post/>
 							<Post sponsored={true}/>
@@ -231,8 +235,47 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 						        
 
 			        	</Tab>
-			        	<Tab heading={<TabHeading style={{backgroundColor:'transparent'}}><Text style={tabsText}>More</Text></TabHeading>}  style={{ backgroundColor:'transparent'}}>
-			        		<Text>qq</Text>
+			        	<Tab heading={<TabHeading style={{backgroundColor:'transparent'}}><Text style={tabsText}>Bookmark</Text></TabHeading>}  style={{ backgroundColor:'transparent'}}>
+			        		
+			        			<List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0,
+			        				flex:1,backgroundColor:'transparent' }}>
+							        <FlatList
+							          data={this.state.data}
+							          renderItem={({ item }) => (
+							            <ListItem
+							              
+							              hideChevron
+
+							              title={
+							              		
+									            <Text style={bookmarkTitle}>{`${item.title}`}</Text>
+									          
+									        }
+							              subtitle={
+							              		<View>
+										            <Text style={bookmarkSubtitle}>{`${item.subtitle}`}</Text>
+										            <Text style={bookmarkDate}>{`${item.date}`}</Text>
+									          	</View>
+									        }
+							              
+							              avatar={<Thumbnail square size={54} source={item.avatar} />}
+							              containerStyle={{ borderBottomWidth: 0}}
+							              onPress={item.page}
+
+							            >
+							            ItemSeparatorComponent={this.renderSeparator}
+
+							            </ListItem>
+							          )}
+
+							          ItemSeparatorComponent={this.renderSeparator}
+							          
+							        />
+	      						</List>
+			        		
+						    
+						        
+
 			        	</Tab>
 			        </Tabs>
 			        </ScrollView>
@@ -252,15 +295,28 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 							<Text style={followingText}>Following</Text>
 						</View>
 					</View>
-
+					<View style={stepsLeft}>
+						<View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:9}}>
+							<Text style={stepsLeftTxt}>Just 4 steps left</Text>
+							<Image  source={require('../assets/images/Yellow-Arrow.png')}>
+			    			</Image>
+						</View>
+						<View style={{backgroundColor:'#E0E0E0',borderRadius:3,width:width*0.9,height:height*0.035}}>
+							<LinearGradient colors={['#5871B5', '#935CAE']} start={{ x: 0, y: 1 }}
+  								end={{ x: 1, y: 1 }}
+  						 		style={{width:width*0.5,height:height*0.035,borderRadius:3}}>
+								<Text> </Text>
+							</LinearGradient>
+						</View>
+					</View>
 					<View
 			            style={{
-			              borderBottomColor: '#FFFFFF',
+			              borderBottomColor: '#8A8A8F',
 			              borderBottomWidth: 1,
 			              justifyContent: 'center',
 			              marginLeft:16,
 			              marginRight:16,
-			              marginTop:8.5,
+			              marginTop:14,
 			            }}
 			          />
 
@@ -472,8 +528,8 @@ export default class VisitedProfileProjectsScreen extends React.Component {
 			        
 			    </ScrollView>
 
-
-			</LinearGradient>
+			    
+			</LinearGradient> 
 			);
 	}
 }
@@ -482,6 +538,21 @@ const styles = {
 	linearGradient:{
 		flex:1,
 	    
+	},
+	stepsLeft:{
+		backgroundColor:'white',
+		width:width,
+		height:height*0.1,
+		marginTop:14,
+		paddingRight:16,
+		paddingLeft:16,
+		paddingBottom:6,
+		paddingTop:4,
+	},
+	stepsLeftTxt:{
+		fontSize:18,
+		fontWeight:'100',
+		color:'#707070'
 	},
 	back:{
 		marginTop:20,

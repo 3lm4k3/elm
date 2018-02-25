@@ -13,9 +13,18 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import TagList from './TagList';
 import reducers from '../reducers';
+import cstyles from "./common/style"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
+import LineIcon from "react-native-vector-icons/SimpleLineIcons"
+import Icon from "react-native-vector-icons/Feather"
 
+import { 
+  Button,
+  Thumbnail,Footer,
+  FooterTab,
+} from "native-base"
 
-import { Button,Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
+import { Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
 const { width, height } = Dimensions.get('window')
 export default class ProfilesScreen extends React.Component {
 
@@ -102,7 +111,30 @@ export default class ProfilesScreen extends React.Component {
 				    </Provider>
 				</ScrollView>
 
-
+				<Footer style={cstyles.footer} >
+		          <FooterTab style={cstyles.footerTab}>
+		            <Button vertical>
+		              <FontAwesome name="newspaper-o" size={30} color="#484848" />
+		              <Text>Feeds</Text>
+		            </Button>
+		            <Button vertical onPress={()=> Actions.profiles()}>
+		              <Icon name="users" size={30} color="#484848" />
+		              <Text>Profiles</Text>
+		            </Button>
+		            <Button vertical>
+		              <LineIcon name="tag" size={30} color="#484848"  />
+		              <Text>Market</Text>
+		            </Button>
+		            <Button vertical onPress={()=> Actions.bids()}>
+		              <Icon name="x" size={30} color="#484848" />              
+		              <Text>Bids</Text>
+		            </Button>
+		            <Button vertical onPress={()=> Actions.more()}>
+		              <Icon name="x" size={30} color="#484848" />              
+		              <Text>More</Text>
+		            </Button>
+		            </FooterTab>
+		        </Footer>
 
 			</View>
 

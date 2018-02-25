@@ -9,10 +9,6 @@ import {Text,Dimensions, View,
 import { Divider } from 'react-native-elements';
 import { Actions,PARAMS } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import PDFList from './PDFList';
-import reducers from '../reducers';
 import {
   Button,
   Thumbnail,
@@ -23,9 +19,14 @@ import cstyles from "./common/style"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
 import Icon from "react-native-vector-icons/Feather"
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import PDFList from './PDFList';
+import reducers from '../reducers';
+
 
 import { Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
-export default class ReferencesScreen extends React.Component {
+export default class FinishingScreen extends React.Component {
  
 	render(){
 		const { textStyle,viewStyle,back,search,title,referenceType,executionTitle } = styles;
@@ -61,7 +62,7 @@ export default class ReferencesScreen extends React.Component {
 		          		</TouchableOpacity>
 					</View>
 
-					<Text style={referenceType}>Execution</Text>
+					<Text style={referenceType}>Finishing</Text>
 
 
 				</View>
@@ -75,6 +76,7 @@ export default class ReferencesScreen extends React.Component {
 		                <PDFList />
               		</View>
 				</ScrollView>
+
 				
 
 			</View>

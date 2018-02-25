@@ -8,6 +8,7 @@ import Header from "./Header/index"
 import cstyles from "./common/style"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
+import Icon from "react-native-vector-icons/Feather"
 import { List, ListItem } from "react-native-elements";
 import { 
   Button,
@@ -15,7 +16,7 @@ import {
   FooterTab,
 } from "native-base"
 import SearchBar from "./common/HeaderSearchBar"
-import Icon from "react-native-vector-icons/Feather"
+
 const { width, height } = Dimensions.get('window');
 
  

@@ -15,7 +15,6 @@ import Header from "../Header/index"
 import Button from "../common/RippleButton"
 
 import styles from "./styles"
-import cstyles from "../common/styles"
 
 export default class Calculator extends React.Component {
   state = {
@@ -60,23 +59,23 @@ export default class Calculator extends React.Component {
               <Icon name="arrow-left" size={30} color="#fff"/>              
             </Button>
           </Header>
-          <Text style={[cstyles.subTitle, styles.subTitle]} >Flat Slab</Text>
+          <Text style={styles.subTitle} >Flat Slab</Text>
           <View style={styles.results} >
             <View style={styles.resultsRow} >
               <Text style={styles.resultsLeftText} >Steel Quantity (Kg)=</Text>
-              <Text style={styles.resultsRightText} >{ (Number(screenText) * 2).toFixed(2) || ""  }</Text> 
+              <Text style={styles.resultsRightText} >{ (Number(screenText) * this.props.formulaList[0]) || ""  }</Text> 
             </View>
             <View style={styles.resultsRow} >
               <Text style={styles.resultsLeftText} >Gravel (m3)=</Text>
-              <Text style={styles.resultsRightText} >{ (Number(screenText) * 3).toFixed(2) || ""  }</Text> 
+              <Text style={styles.resultsRightText} >{ (Number(screenText) * this.props.formulaList[0]) || ""  }</Text> 
             </View>
             <View style={styles.resultsRow} >
               <Text style={styles.resultsLeftText} >Sand (m3)=</Text>
-              <Text style={styles.resultsRightText} >{ (Number(screenText) * 4).toFixed(2) || ""  }</Text> 
+              <Text style={styles.resultsRightText} >{ (Number(screenText) * this.props.formulaList[0]) || ""  }</Text> 
             </View>
             <View style={styles.resultsRow} >
               <Text style={styles.resultsLeftText} >Cement (Ton)=</Text>
-              <Text style={styles.resultsRightText} >{ (Number(screenText) * 5).toFixed(2) || ""  }</Text> 
+              <Text style={styles.resultsRightText} >{ (Number(screenText) * this.props.formulaList[0]) || ""  }</Text> 
             </View>
           </View>
           <View style={styles.result} >
@@ -93,7 +92,7 @@ export default class Calculator extends React.Component {
                 if(num === 0) {
                   return (
                     <View style={{flexDirection: "row"}} key={index} >
-                      <TouchableOpacity onPress={() => this.handleButtonPress(num)} style={[styles.button, styles.zeroButton]}>
+                      <TouchableOpacity onPress={() => this.handleButtonPress(num)} style={[styles.button, {width: 170}]}>
                         <Text style={styles.buttonText} >{ num }</Text>
                       </TouchableOpacity>
                       <TouchableOpacity onPress={() => this.handleButtonPress(".")} style={[styles.button]}>

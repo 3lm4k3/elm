@@ -11,7 +11,7 @@ import ReadMore from "react-native-read-more-text"
 
 import Divider from "../common/Divider";
 
-import cstyles from "../common/styles"
+import cstyles from "../common/style"
 
 export default class Bid extends React.Component {
   state = {

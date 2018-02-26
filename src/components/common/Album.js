@@ -8,7 +8,7 @@ import {
 
 import Image from "./Image";
 
-import cstyles from "./styles"
+import cstyles from "./style"
 
 export default class Album extends React.Component {
   render() {

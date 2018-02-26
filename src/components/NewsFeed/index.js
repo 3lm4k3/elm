@@ -27,7 +27,7 @@ import SearchBar from "../common/HeaderSearchBar"
 import Carrousel from "../common/Carrousel"
 
 import styles from "./styles"
-import cstyles from "../common/styles"
+import cstyles from "../common/style"
 
 
 const { width, height } = Dimensions.get('window')

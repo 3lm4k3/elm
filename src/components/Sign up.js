@@ -8,7 +8,7 @@ import {Text,Dimensions, View,
 import { Divider } from 'react-native-elements';
 import { Actions,PARAMS } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
-
+import { strings } from '../i18n';
 const { width, height } = Dimensions.get('window');
 import { Button,Card,CardSection,Input,Spinner,Checkbox } from './common';
 
@@ -49,10 +49,12 @@ export default class FirstScreen extends React.Component {
             onPress={() => Actions.pop()}
           > 
             <Image
-               source={require('../assets/images/prices.png')}
+
+               source={require('../assets/images/back-arrow-white.png')}
+               
             ></Image>
           </TouchableOpacity>
-          <Text style={styles.headerText}>New Account</Text>
+          <Text style={styles.headerText}>{strings('signup.header_Txt')}</Text>
           </View>
           <View style={{justifyContent: 'center',
             alignItems: 'center',}}> 
@@ -66,7 +68,7 @@ export default class FirstScreen extends React.Component {
             <Text
               style={styles.accountLoginText}
 
-            >I have an Account Log in</Text>
+            >{strings('signup.haveAccount_Btn')}</Text>
           </TouchableOpacity>
           </View>
 
@@ -76,7 +78,7 @@ export default class FirstScreen extends React.Component {
           <Divider style={{ backgroundColor: 'grey'}} />
 
 
-          <Text style={styles.connectWith}>Connect with...</Text>
+          <Text style={styles.connectWith}>{strings('signup.connectWith_Txt')}</Text>
         {/*
         social login buttons container view*/}
           <View style={styles.socialLogin}>
@@ -89,7 +91,7 @@ export default class FirstScreen extends React.Component {
               {/*social media login icon*/}
               <Image
               style={styles.socialLoginImage}
-              source={require('../assets/images/facebook.png')}
+              source={require('../assets/images/FB-logo.png')}
             
               />
             </TouchableOpacity>
@@ -114,7 +116,7 @@ export default class FirstScreen extends React.Component {
               
               <Image
               style={styles.socialLoginImage}
-              source={require('../assets/images/googleSignup.png')}
+              source={require('../assets/images/google-icon.png')}
             
               />
             </TouchableOpacity>
@@ -126,7 +128,7 @@ export default class FirstScreen extends React.Component {
 
           <Text
             style={styles.accountInfo}
-          >Account Info.</Text>
+          >{strings('signup.accountInfo_Txt')}</Text>
 
         {/*Signing up user details view container*/}
 
@@ -136,28 +138,28 @@ export default class FirstScreen extends React.Component {
               <Input
                 style={styles.firstNameStyle}
                 
-                placeholder="First Name"
+                placeholder={strings('signup.firstName_Txt')}
                 
               ></Input>
 
               <Input
                 style={styles.lastNameStyle}
                 
-                placeholder="Last Name"
+                placeholder={strings('signup.lastName_Txt')}
                 
               ></Input>
 
               <Input
                 style={styles.lastNameStyle}
                 
-                placeholder="E-mail"
+                placeholder={strings('signup.email_Txt')}
                 
               ></Input>
 
               <Input
                 style={styles.lastNameStyle}
                 
-                placeholder="Password"
+                placeholder={strings('signup.password_Txt')}
                 
               ></Input>
 
@@ -179,9 +181,14 @@ export default class FirstScreen extends React.Component {
                 
                 checked={this.state.checked}
               />
-              <Text
-                style={styles.termsNConditionsStyleTxt}
-              > I Agree on terms & conditions</Text>
+              <TouchableOpacity
+                onPress={() => Actions.terms(PARAMS)}
+              >
+                <Text
+                  style={styles.termsNConditionsStyleTxt}
+                >{strings('signup.termsNConditions_Txt')}</Text>
+
+              </TouchableOpacity>
             </View>
 
 
@@ -192,7 +199,7 @@ export default class FirstScreen extends React.Component {
             style={styles.createNewAccountBtn}
             onPress={() => Actions.home(PARAMS)}
           > 
-            <Text style={styles.createAccountTxt}>Create a new Account</Text>
+            <Text style={styles.createAccountTxt}>{strings('signup.createAccount_Txt')}</Text>
           </TouchableOpacity>
           </View>
 
@@ -225,11 +232,15 @@ const styles = StyleSheet.create({
     
   },
   back:{
-    marginLeft:20,
+    width:width*0.3,
+    marginLeft:width*0.08
   },
   header:{
     marginTop:32,
     flexDirection:'row',
+    
+
+
 
     
   },
@@ -237,7 +248,8 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     fontSize:17,
     color:'white',
-    marginLeft:width*0.15,
+    
+    width:width*0.5
 
 
 

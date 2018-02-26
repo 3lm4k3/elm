@@ -18,7 +18,7 @@ import Swiper from "../common/Swiper"
 import ProposalsList from "../common/ProposalsList"
 
 
-import cstyles from "../common/styles"
+import cstyles from "../common/style"
 
 
 export default class BidPage extends React.Component {

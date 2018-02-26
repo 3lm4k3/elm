@@ -20,7 +20,7 @@ import { Actions } from "react-native-router-flux"
 import Divider from "../common/Divider"
 import Button from "../common/RippleButton"
 
-import cstyles from "../common/styles"
+import cstyles from "../common/style"
 
 const { row, spaceBetween, center, bold, white } = cstyles
 

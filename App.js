@@ -21,12 +21,17 @@ import PostLightBox from "./src/components/PostLightBox/index"
 import FirstScreen from "./src/components/Sign up";
 //second Login Screen
 import TakeTourScreen from "./src/components/Take a Tour login and signup";
-
+import TermsScreen from "./src/components/TermsNConditions"
 import AfterSignupScreen from "./src/components/AfterSignup";
 import ProfilesScreen from "./src/components/Profiles";
 import ReferencesScreen from "./src/components/References";
 import PDFPage from "./src/components/PDFPage";
+import CodesScreen from "./src/components/Codes";
 import CategoryProsScreen from './src/components/CategoryPros';
+import CalculationsScreen from './src/components/Calculations'
+import MembershipScreen from './src/components/Membership'
+import VerficationScreen from './src/components/Verfication'
+import FinishingScreen from './src/components/Finishing'
 import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
 import CategoryPage from "./src/components/CategoryPage/index"

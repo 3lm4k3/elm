@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Text,Image,TouchableOpacity } from 'react-native';
+import { View,Text,Image,TouchableOpacity,ImageBackground } from 'react-native';
 import StarRating from './StarRating';
 
 
@@ -7,10 +7,10 @@ const ContactCard = (props) => {
 	return (
 		<View style={styles.containerStyle}>
 			<View style={styles.container} >
-				<Image style={styles.backgroundImage} source={props.icon} />
+				<ImageBackground style={styles.backgroundImage} source={props.icon} />
 				<View style={styles.overlay} >
 					<TouchableOpacity style={styles.saveImage}>
-						<Image source={require('../../assets/images/home.png')}/>
+						<Image source={require('../../assets/images/mark-ico-notactive.png')}/>
 					</TouchableOpacity>
 					<View style={{flexDirection:'row',
             alignItems:'center',marginLeft:5}}>
@@ -23,8 +23,8 @@ const ContactCard = (props) => {
 									maxStars={5}
 									rating={props.ratingStars}
 									starSize={10}
-									selectStar={require('../../assets/images/select_star.png')}
-									unSelectStar={require('../../assets/images/unselect_star.png')}
+									selectStar={require('../../assets/images/profile-rating-full.png')}
+									unSelectStar={require('../../assets/images/profile-rating-empty.png')}
 									valueChanged={this._valueChanged}
 								/>
 								<Text style={styles.reviews} >{props.reviews}</Text>

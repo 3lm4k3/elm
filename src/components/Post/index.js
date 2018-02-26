@@ -26,7 +26,7 @@ import Divider from "../common/Divider"
 import Album from "../common/Album"
 import Image from "../common/Image"
 
-import cstyles from "../common/styles"
+import cstyles from "../common/style"
 
 
 

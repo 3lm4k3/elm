@@ -1,0 +1,19 @@
+{
+  "tour": {
+    "login_Btn": "Login",
+    "signup_Btn": "Sign Up"
+  },
+  "signup":{
+  	"header_Txt":"New Account",
+  	"haveAccount_Btn":"I have an Account Log in",
+  	"connectWith_Txt":"Connect with",
+  	"accountInfo_Txt":"Account Info.",
+  	"firstName_Txt":"First Name",
+  	"lastName_Txt":"Last Name",
+  	"email_Txt":"E-mail",
+  	"password_Txt":"Password",
+  	"termsNConditions_Txt":"I Agree on terms & conditions",
+  	"createAccount_Txt":"Create a new Account",
+  },
+  
+}

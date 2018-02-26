@@ -1,16 +1,16 @@
 import React from 'react';
 import {Text, View,StyleSheet,TouchableHighlight,
   Image,
-  Dimensions,
-  StatusBar,} from 'react-native';
+  Dimensions,TouchableOpacity,
+  StatusBar} from 'react-native';
 
 import Swiper from 'react-native-swiper';
 import { Actions,PARAMS } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
-
+import { strings } from '../i18n';
 const { width, height } = Dimensions.get('window')
 
-
+ 
 export default class TakeTourScreen extends React.Component {
 
 	// customizing navigation page options :title
@@ -65,19 +65,24 @@ export default class TakeTourScreen extends React.Component {
         </LinearGradient>
     {/* End of the swiper view */}
 	{/* Login and Signup buttons for navigation through pages */}
+    <View style={{justifyContent:'space-around',alignItems:'center'}}>
         <TouchableHighlight
           style={styles.LoginButton}
           onPress={() => Actions.login(PARAMS)}
           
           underlayColor='#fff'>
-          <Text style={styles.LoginButtonText}>Login</Text>
+          <Text style={styles.LoginButtonText}>{strings('tour.login_Btn')}</Text>
         </TouchableHighlight>
+        
         <TouchableHighlight
           style={styles.SignupButton}
           onPress={() => Actions.register(PARAMS)}
           underlayColor='#fff'>
-          <Text style={styles.signupButtonText}>Sign up</Text>
+          <Text style={styles.signupButtonText}>{strings('tour.signup_Btn')}</Text>
         </TouchableHighlight>
+
+        
+        </View>
         
       </View>
     );
@@ -94,10 +99,11 @@ var styles = StyleSheet.create({
     // backgroundColor: '#f00'
 
   },
+  
 LoginButton:{
-    marginRight:40,
-    marginLeft:40,
-    marginTop:26,
+    
+    
+    marginTop:height*0.02,
     marginBottom:10,
     paddingTop:20,
     paddingBottom:20,
@@ -105,15 +111,16 @@ LoginButton:{
     borderRadius:300,
     borderWidth: 1,
     borderColor: '#fff',
-    width:300,
+    width:width*0.8,
 
     justifyContent: 'center',
     alignItems: 'center',
 
   },
+  
   SignupButton:{
-    marginRight:40,
-    marginLeft:40,
+    
+    
     marginTop:10,
     marginBottom:26,
     paddingTop:20,
@@ -122,7 +129,7 @@ LoginButton:{
     borderRadius:300,
     borderWidth: 1,
     borderColor: '#fff',
-    width:300,
+    width:width*0.8,
     justifyContent: 'center',
     alignItems: 'center',
 

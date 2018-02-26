@@ -8,10 +8,12 @@ import {Text,Dimensions, View,
   TouchableHighlight,FlatList,WebView} from 'react-native';
  import { Actions,PARAMS } from 'react-native-router-flux';
 //  import Pdf from 'react-native-pdf';
-
+/*
 const RNFS = require('react-native-fs');
 const downloadUrl = 'https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf';
 let jobId = -1;
+*/
+const { width, height } = Dimensions.get('window')
  export default class PDFPage extends React.Component {
  	constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ let jobId = -1;
       };
     
   }
-  
+  /*
   downloadFileTest (background, url) {
     if (jobId !== -1) {
       this.setState({ output: 'A download is already in progress' });
@@ -66,6 +68,10 @@ let jobId = -1;
     this.setState({ output: `ERROR: Code: ${err.code} Message: ${err.message}` });
     console.log('not completed')
   }
+
+onPress={this.downloadFileTest.bind(this, true, downloadUrl) }}
+
+  */
  	render(){
  		const source = {uri:'https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf'};
  		const { viewStyle,back,download,downloadImage} = styles;
@@ -77,9 +83,9 @@ let jobId = -1;
 				            style={back}
 
 				            onPress={() => Actions.pop()}
-				         > 
+				         >  
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Back-arrow.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -89,7 +95,7 @@ let jobId = -1;
 		            
 				            style={download}
 
-				            onPress={this.downloadFileTest.bind(this, true, downloadUrl) }
+				            
 				         > 
 				            <Image
 				               source={require('../assets/images/prices.png')}
@@ -99,11 +105,13 @@ let jobId = -1;
 				            </Image>
 		          		</TouchableOpacity>
 					</View>
- 				 <WebView
-		          source={{uri:this.props.pdfLink}}
-		         
-		          style={{marginTop: 20,width:342,marginLeft:16,marginBottom:19}}
-		        />
+					
+	 				 <WebView
+			          source={{uri:this.props.pdfLink}}
+			         
+			          style={{marginTop: 20,width:width*0.8,marginLeft:width*0.1,marginBottom:19}}
+			        />
+		        	
  			</View>
  			);
  	}
@@ -127,6 +135,7 @@ let jobId = -1;
 	back:{
 		width:188,
 		height:44,
+		marginLeft:16,
 	},
 	download:{
 		width:188,

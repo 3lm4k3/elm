@@ -13,11 +13,20 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import PDFList from './PDFList';
 import reducers from '../reducers';
+import {
+  Button,
+  Thumbnail,
+  Tab,TabHeading,
+  Footer,
+  FooterTab} from "native-base";
+import cstyles from "./common/style"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
+import LineIcon from "react-native-vector-icons/SimpleLineIcons"
+import Icon from "react-native-vector-icons/Feather"
 
-
-import { Button,Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
+import { Card,Header,CategoryCard,CardSection,Input,Spinner,Checkbox } from './common';
 export default class ReferencesScreen extends React.Component {
-
+ 
 	render(){
 		const { textStyle,viewStyle,back,search,title,referenceType,executionTitle } = styles;
 		return(
@@ -31,7 +40,7 @@ export default class ReferencesScreen extends React.Component {
 				            onPress={() => Actions.pop()}
 				         > 
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Back-arrow.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -46,7 +55,7 @@ export default class ReferencesScreen extends React.Component {
 				            onPress={() => Actions.pop()}
 				         > 
 				            <Image
-				               source={require('../assets/images/prices.png')}
+				               source={require('../assets/images/Notification-active.png')}
 				            >
 				            </Image>
 		          		</TouchableOpacity>
@@ -66,6 +75,7 @@ export default class ReferencesScreen extends React.Component {
 		                <PDFList />
               		</View>
 				</ScrollView>
+				
 
 			</View>
 

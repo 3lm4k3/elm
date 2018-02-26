@@ -9,7 +9,7 @@ class Panel extends Component{
         
 
         this.icons = {     //Step 2
-            'up'    : require('../assets/images/home.png'),
+            'up'    : require('../assets/images/Yellow-Arrow.png'),
             'down'  : require('../assets/images/prices.png')
         };
 
@@ -61,7 +61,7 @@ _setMinHeight(event){
         return (
         <Animated.View 
             style={[styles.container,{height: this.state.animation}]}> 
-            <LinearGradient colors={['#5871B5', '#935CAE']} style={styles.container} >
+            <View  style={styles.container} >
 
             <View>
                 <View style={styles.titleContainer} onLayout={this._setMinHeight.bind(this)}>
@@ -82,7 +82,7 @@ _setMinHeight(event){
                 </View>
 
             </View>
-            </LinearGradient>
+            </View>
             </Animated.View>
         );
     }
@@ -91,10 +91,13 @@ var styles = StyleSheet.create({
     container   : {
         
         margin:10,
-        overflow:'hidden'
+        overflow:'hidden',
+        backgroundColor:'transparent'
+
     },
     titleContainer : {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        backgroundColor:'transparent'
     },
     title       : {
         color: "#FCFE80",
@@ -102,15 +105,17 @@ var styles = StyleSheet.create({
         padding : 10,
         fontSize:22,
         backgroundColor: 'transparent',
-        fontWeight:'bold'
+        fontWeight:'bold',
+
     },
     button      : {
 
-
+        backgroundColor:'transparent'
     },
     buttonImage : {
         width   : 30,
-        height  : 25
+        height  : 25,
+        backgroundColor:'transparent'
     },
     body        : {
         padding     : 0,

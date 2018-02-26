@@ -5,9 +5,10 @@ import {Text,Dimensions, View,
 import { Actions,PARAMS } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from "./Header/index"
-import cstyles from "./common/styles"
+import cstyles from "./common/style"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
+import Icon from "react-native-vector-icons/Feather"
 import { List, ListItem } from "react-native-elements";
 import { 
   Button,
@@ -15,31 +16,31 @@ import {
   FooterTab,
 } from "native-base"
 import SearchBar from "./common/HeaderSearchBar"
-import Icon from "react-native-vector-icons/Feather"
+
 const { width, height } = Dimensions.get('window');
 
-
+ 
 export default class MoreScreen extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {
       
-      data: [	{key:1,title: 'My bids',avatar:require('../assets/images/abdo.png'),page:() => Actions.bids()},
-      			{key:2,title: 'My proposals',avatar:require('../assets/images/abdo.png'),page:() => Actions.bids()},
-      		 	{key:3,title: 'Today prices',avatar:require('../assets/images/abdo.png'),page:() => Actions.stocks()},
-			 	{key:4,title: 'Blogs',avatar:require('../assets/images/prices.png'),page:() => Actions.newsfeed()},
-			 	{key:5,title: 'Quick calc',avatar:require('../assets/images/prices.png'),page:() => Actions.calculator()},
-			 	{key:6,title: 'Finishing',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:7,title: 'Codes',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:8,title: 'Tanfez',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:9,title: 'Roads',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:10,title: 'Tenders “from the gov”',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:11,title: 'Jobs',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:12,title: 'downloaded pdfs',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:13,title: 'Membership Plans',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:14,title: 'My Basket',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:15,title: 'Drafs',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
-			 	{key:16,title: 'Offers',avatar:require('../assets/images/prices.png'),page:() => Actions.References()},
+      data: [	{key:1,title: 'My bids',avatar:require('../assets/images/more-mybids-ico.png'),page:() => Actions.bids()},
+      			{key:2,title: 'My proposals',avatar:require('../assets/images/more-myproposals-ico.png'),page:() => Actions.bids()},
+      		 	{key:3,title: 'Today prices',avatar:require('../assets/images/more-todayprice-ico.png'),page:() => Actions.stocks()},
+			 	{key:4,title: 'Blogs',avatar:require('../assets/images/more-blogs-ico.png'),page:() => Actions.newsfeed()},
+			 	{key:5,title: 'Quick calc',avatar:require('../assets/images/more-quickcal-ico.png'),page:() => Actions.calculator()},
+			 	{key:6,title: 'Finishing',avatar:require('../assets/images/more-finishing-ico.png'),page:() => Actions.References()},
+			 	{key:7,title: 'Codes',avatar:require('../assets/images/more-cods-ico.png'),page:() => Actions.References()},
+			 	{key:8,title: 'Tanfez',avatar:require('../assets/images/more-tanfez-ico.png'),page:() => Actions.References()},
+			 	{key:9,title: 'Roads',avatar:require('../assets/images/more-roads-ico.png'),page:() => Actions.References()},
+			 	{key:10,title: 'Tenders “from the gov”',avatar:require('../assets/images/more-tenders-ico.png'),page:() => Actions.References()},
+			 	{key:11,title: 'Jobs',avatar:require('../assets/images/more-jobs-ico.png'),page:() => Actions.References()},
+			 	{key:12,title: 'downloaded pdfs',avatar:require('../assets/images/more-pdfs-ico.png'),page:() => Actions.References()},
+			 	{key:13,title: 'Membership Plans',avatar:require('../assets/images/more-membership-ico.png'),page:() => Actions.References()},
+			 	{key:14,title: 'My Basket',avatar:require('../assets/images/more-mybasket-ico.png'),page:() => Actions.References()},
+			 	{key:15,title: 'Drafs',avatar:require('../assets/images/more-drafs-ico.png'),page:() => Actions.References()},
+			 	{key:16,title: 'Offers',avatar:require('../assets/images/more-offers-ico.png'),page:() => Actions.References()},
 
 
 
@@ -61,7 +62,7 @@ export default class MoreScreen extends React.Component {
     );
   };
   render(){
-  	const { container,profileSheet,createBid,profileArrow,profilePic,userName,userProfession } = styles;
+  	const { container,icon,profileSheet,createBid,profileArrow,profilePic,userName,userProfession } = styles;
   	return(
   		<View style={container}>
   			<StatusBar
@@ -116,7 +117,9 @@ export default class MoreScreen extends React.Component {
 	              roundAvatar
 	              chevronColor='black'
 	              title={`${item.title}`}
-	              avatar={<Thumbnail small source={item.avatar} />}
+	              avatar={<LinearGradient colors={['#5871B5', '#935CAE']} style={icon}>
+	              			<Image  source={item.avatar} />
+	              		</LinearGradient>}
 	              containerStyle={{ borderBottomWidth: 0}}
 	              onPress={item.page}
 
@@ -167,7 +170,14 @@ const styles = {
 		backgroundColor:'white',
 	},
 	profileArrow:{
-		marginLeft:131,
+		marginLeft:width*0.36,
+	},
+	icon:{
+		width:50,
+		height:50,
+		justifyContent:'center',
+		alignItems:'center',
+		borderRadius:40
 	},
 	createBid:{
 		color:'#935CAE',

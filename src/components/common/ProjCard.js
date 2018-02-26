@@ -1,28 +1,31 @@
 import React from 'react';
-import { View,Text,Image,ImageBackground } from 'react-native';
+import { View,Text,Image,ImageBackground,Dimensions } from 'react-native';
 import StarRating from './StarRating';
-
+const { width, height } = Dimensions.get('window')
 const ProjCard = (props) => {
-	return (
+	return ( 
 		<View style={styles.containerStyle}>
 			<ImageBackground style={styles.image} source={props.icon} >
-				<View style={{flexDirection:'row'}}>
-					<Image style={styles.seenProj} source={require('../../assets/images/google.png')}></Image>
-					<Text style={styles.seenNumText}>{props.seenNum}</Text>
-					<Image style={styles.saveProj} source={require('../../assets/images/home.png')}></Image>
+				<View style={{flexDirection:'row',justifyContent:'space-between',
+							marginLeft:5,marginRight:5,marginTop:7.29}}>
+					<View style={{flexDirection:'row'}}>
+						<Image source={require('../../assets/images/product-views-ico.png')}></Image>
+						<Text style={styles.seenNumText}>{props.seenNum}</Text>
+					</View>
+					<Image style={styles.save} source={require('../../assets/images/mark-ico-notactive.png')}></Image>
 					
 				</View>
 
 			</ImageBackground>
 
 			<Text style={styles.textStyle} >{props.headerText}</Text>
-			<View style={{flexDirection:'row', marginLeft:18}}>
+			<View style={{flexDirection:'row', marginLeft:18,marginTop:3.47}}>
 			<StarRating
 				maxStars={5}
 			    rating={props.ratingStars}
 			    starSize={10}
-			    selectStar={require('../../assets/images/select_star.png')}
-			    unSelectStar={require('../../assets/images/unselect_star.png')}
+			    selectStar={require('../../assets/images/product-rating-full.png')}
+			    unSelectStar={require('../../assets/images/product-rating-empty.png')}
 			    valueChanged={this._valueChanged}
 
 			    /><Text> </Text>
@@ -42,43 +45,31 @@ const styles = {
 		borderBottomWidth: 0,
 		shadowColor: '#000',
 		width:179,
-		height:173,
+		height:height*0.285,
 		shadowOffset: { width: 0, height: 2 },
 		shadowOpacity: 0.1,
 		shadowRadius: 2,
 		elevation: 1,
-		marginLeft: 5,
-		marginRight: 5,
+		
 		marginTop: 10
+	},
+	save:{
+		marginTop:-5,
 	},
 	image:{
 		backgroundColor:'grey',
 		width:177,
-		height:118,
+		height:134,
 
 	},
-	seenProj:{
-		width:12,
-		height:19,
-		marginTop:7.29,
-		marginLeft:5,
-		
-	},
-	saveProj:{
-		width:12,
-		height:19,
-		marginLeft:115,
-		marginTop:7.29,
-		
-		
-		
-	},
+	
+	
 	seenNumText:{
 		backgroundColor:'transparent',
 		
-		marginTop:7.29,
+		
 		marginLeft:3,
-		paddingLeft:3,
+		
 		
 		fontSize:12,
 		fontWeight:'bold',
@@ -87,7 +78,7 @@ const styles = {
 	textStyle:{
 		backgroundColor:'transparent',
 		
-		marginTop:5,
+		marginTop:height*0.02,
 		paddingLeft:18,
 		
 		fontSize:12,

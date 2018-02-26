@@ -19,7 +19,7 @@ import { Actions } from "react-native-router-flux"
 
 import Header from "../Header/index"
 
-import cstyles from "../common/styles"
+import cstyles from "../common/style"
 
 
 export default class CreateBid extends React.Component {

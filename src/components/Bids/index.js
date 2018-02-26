@@ -32,7 +32,7 @@ import Bid from "../Bid/index"
 import SideBar from "../SideBar/index"
 import AutoLoadList from "../common/AutoLoadList"
 
-import cstyles from "../common/styles.js"
+import cstyles from "../common/style"
 
 
 export default class Bids extends React.Component {

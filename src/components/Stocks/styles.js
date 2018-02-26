@@ -61,4 +61,7 @@ export default StyleSheet.create({
   },
   brandPriceIcon: {
   },
+  "@media (max-width: 400)": {
+
+  }
 })

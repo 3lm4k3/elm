@@ -11,6 +11,7 @@ import Icon from "react-native-vector-icons/Feather"
 import IonIcon from "react-native-vector-icons/Ionicons"
 import LinearGradient from "react-native-linear-gradient"
 import { Actions } from "react-native-router-flux"
+import ReadMore from "react-native-read-more-text"
 
 import Fixed5Stars from "../common/Fixed5Stars"
 import AutoLoadList from "../common/AutoLoadList"
@@ -36,6 +37,9 @@ export default class ProductsList extends React.Component {
       }
     }))
   }
+  _renderTruncatedFooter = () => {
+    
+  }
   renderProducts = () => {
     const { productBookmarked } = this.state
     return range(6).map((el, index) => {
@@ -56,7 +60,11 @@ export default class ProductsList extends React.Component {
           <View style={styles.productMeta} >
             <TouchableWithoutFeedback onPress={() => Actions.product()}>
               <View style={{flex: 1}}>
-                <Text style={styles.productMetaTitle} >IKEA Poang Armchair</Text>
+                <ReadMore
+                  numberOfLines={1}
+                  renderTruncatedFooter={this._renderTruncatedFooter}>
+                  <Text style={styles.productMetaTitle} >IKEA Poang Armchair</Text>
+                </ReadMore>
                 <Text style={styles.productMetaSubTitle} >IKEA </Text>
                 <Fixed5Stars/>
                 <Text style={styles.productMetaPrice} >EGP 4,500</Text>
@@ -136,6 +144,10 @@ const styles = EstyleSheet.create({
     fontSize: 22,
     fontWeight: "bold"
   },
-
+  "@media (max-width: 400)": {
+    productsList: {
+      marginVertical: 20
+    }
+  }
 })
 

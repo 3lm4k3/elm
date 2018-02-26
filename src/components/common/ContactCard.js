@@ -148,7 +148,6 @@ const styles = {
 		fontSize:9,
 		fontWeight:'bold',
 	},
-	
 	reviews:{
 		backgroundColor:'transparent',
 		color:'white',

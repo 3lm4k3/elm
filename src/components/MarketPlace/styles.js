@@ -19,7 +19,8 @@ export default EstyleSheet.create({
     marginVertical: 15,
     justifyContent: "center",
     alignItems: "center",
-    elevation: 10
+    elevation: 15,
+    backgroundColor: "#fff"
   },
   carrouselText: {
     color: "#fff",
@@ -59,5 +60,20 @@ export default EstyleSheet.create({
   categoryMetaTitle: {
     fontWeight: "bold"
   },
-
+  "@media (max-width: 400)": {
+    subTitle: {
+      fontSize: 20
+    },
+    categoryList: {
+      marginVertical: 25 
+    },
+    carousel: {
+      marginLeft: 0,
+      height: 200
+    },
+    carrouselElm: {
+      width: 250,
+      height: 150
+    }
+  }
 })

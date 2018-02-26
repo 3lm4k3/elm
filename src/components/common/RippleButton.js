@@ -21,31 +21,25 @@ export default (props) => {
   radius = props.radius || 5
   
   const styles = {
-    backgroundColor: 'transparent', 
+    backgroundColor: 'transparent',
     borderRadius: 23, 
-    flex:1, 
+    flex:1,
     height: 50,
     paddingVertical: 5,
-    paddingHorizontal: 20
-    
+    paddingHorizontal: 20,
   }
   const buttonWrapper = {
     borderRadius: radius,
-    flex: style && 1,
-
+    flex:  1,
   }
   
   return (
-    <View style={style || {elevation: 3, margin: 5, borderRadius: radius}} >
-      <LinearGradient  colors={active ? activeColor : defaultColor}
-        start={{x: 0.0, y: 0.90}} end={{x: 0.90, y: 1.0}} style={buttonWrapper} >
-        <Ripple rippleContainerBorderRadius={radius} onPress={onPress} rippleDuration={800} rippleColor={rippleColor} style={[styles, style && center]} >
+    <View style={[{elevation: 3, margin: 5, borderRadius: radius}, style]} >
+      <LinearGradient  colors={active ? activeColor : defaultColor} start={{x: 0.0, y: 0.90}} end={{x: 0.90, y: 1.0}} style={buttonWrapper} >
+        <Ripple rippleContainerBorderRadius={radius} onPress={onPress} rippleDuration={800}
+                rippleColor={rippleColor} style={[styles, cstyles.center]} >
           {
-            children ? children : 
-            <View style={[row, center, {flex: 1}] }>
-              <FontAwesome name="photo" size={25} color={active ? "#fff" : "#B334C4"} />
-              <Text style={[bold, { marginHorizontal: 10, color: active ? "#fff" : "#B334C4"}]}>{text}</Text>
-            </View>
+            children
           }
         </Ripple>
       </LinearGradient>

@@ -2,7 +2,8 @@ import React from "react"
 import {
   View,
   Text,
-  ToastAndroid
+  ToastAndroid,
+  TouchableWithoutFeedback
 } from "react-native"
 import {
   Thumbnail,
@@ -11,168 +12,65 @@ import {
   Item
 } from "native-base"
 import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
-import Ripple from "react-native-material-ripple"
-import LinearGradient from "react-native-linear-gradient"
 import ImagePicker from "react-native-image-picker"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+import { Actions } from "react-native-router-flux"
 
 import Divider from "../common/Divider"
 import Button from "../common/RippleButton"
 
 import cstyles from "../common/styles"
 
-const { row, spaceBetween, center } = cstyles
+const { row, spaceBetween, center, bold, white } = cstyles
 
 export default class NewStatus extends React.Component {
   state = {
     postText: "",
     postType: "",
   }
-  handlePress = (type) => {
-    if(type === "photo") {  
-      // More info on all the options is below in the README...just some common use cases shown here
-      const options = {
-        title: 'Select Avatar',
-        customButtons: [
-          {name: 'fb', title: 'Choose Photo from Facebook'},
-        ],
-        storageOptions: {
-          skipBackup: true,
-          path: 'images'
-        }
-      };
-      /**
-       * The first arg is the options object for customization (it can also be null or omitted for default options),
-       * The second arg is the callback which sends object: response (more info below in README)
-       */
-      ImagePicker.showImagePicker(options, (response) => {
-        console.log('Response = ', response);
-
-        if (response.didCancel) {
-          console.log('User cancelled image picker');
-        }
-        else if (response.error) {
-          console.log('ImagePicker Error: ', response.error);
-        }
-        else if (response.customButton) {
-          console.log('User tapped custom button: ', response.customButton);
-        }
-        else {
-          let source = { uri: response.uri };
-
-          // You can also display the image using data:
-          // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-          this.setState({
-            avatarSource: source
-          });
-        }
-      });
-    }else {
-      if(type !== this.state.postType) {
-        this.setState({
-          postType: type
-        })
-      }else {
-        this.setState({
-          postType: ""
-        })
-      }
-    }
-  }
-  handlePosting = () => {
-    const text = this.state.postText
-    fetch("https://us-central1-elmawkaa.cloudfunctions.net/addMessage?text=" + text)
-      .then((res) => {
-        if(res.status === 200) {
-          console.log(res)
-          return res.json()
-        }
-      }).then(json => {
-        ToastAndroid.showWithGravityAndOffset(
-            json.message,
-            ToastAndroid.LONG,
-            ToastAndroid.BOTTOM,
-            25,
-            50
-        );
-      }).catch(e => {
-        ToastAndroid.showWithGravityAndOffset(
-          e.message,
-          ToastAndroid.LONG,
-          ToastAndroid.BOTTOM,
-          25,
-          50
-        );
-      })
-  }
-  componentDidUpdate(prevProps, prevState) {
-    const { postType, postText } = this.state
-    
-  }
-  _onChange = text => {    
-    this.setState({ postText: text })
-  }
   render() {
     const { postType, postText } = this.state
     return (
       <View style={styles.container}>
-        <View style={[row, { padding: 15 }]}>
-          <Thumbnail source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg'}} />   
-          <AutoGrowingTextInput
-              style={styles.textInput}
-              placeholder={"What's in your mind?"}
-              placeholderTextColor='#66737C'
-              maxHeight={200}
-              minHeight={50}
-              enableScrollToCaret
-              underlineColorAndroid="transparent"
-              onChangeText={this._onChange}
-            />
-        </View>   
-        {
-          postType === "selling" &&
+        <TouchableWithoutFeedback onPress={() => Actions.postLightBox()}>
           <View>
-            <Divider color="#D0D1D2"/> 
-            <View>
-              <View style={styles.inputWrapper} >
-                <Item style={{flex: 1}} >
-                  <Input placeholder='Product Name'/>
-                </Item>
-              </View>
-              <View style={styles.inputWrapper} >
-                <Item style={{flex: 1}} >
-                  <Input placeholder='Price' keyboardType="numeric" />
-                </Item>
-              </View>
+            <View style={styles.mainStatusWrapper}>
+              <Thumbnail style={styles.userImage} source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg'}} />
+              <AutoGrowingTextInput
+                style={styles.textInput}
+                placeholder={"What's in your mind?"}
+                placeholderTextColor='#66737C'
+                maxHeight={200}
+                minHeight={50}
+                enableScrollToCaret
+                underlineColorAndroid="transparent"
+                onChangeText={this._onChange}
+              />
+            </View>
+            <Divider color="#D0D1D2"/>
+            <View style={styles.postOptions} >
+              <Button radius={23} onPress={() => this.handlePress("photo")} style={styles.postOption} >
+                <View style={cstyles.row}>
+                  <FontAwesome name="photo" size={25} color={"#B334C4"} />
+                  <Text style={[cstyles.bold, {color: "#B334C4", lineHeight: 30, marginLeft: 5}]} >Photo</Text>
+                </View>
+              </Button>
+              <Button radius={23} onPress={() => this.handlePress("video")} style={styles.postOption} >
+                <View style={cstyles.row}>
+                  <FontAwesome name="photo" size={25} color={"#B334C4"} />
+                  <Text style={[cstyles.bold, {color: "#B334C4", lineHeight: 30, marginLeft: 5}]}> Video</Text>
+                </View>
+              </Button>
+              <Button radius={23} onPress={() => this.handlePress("selling")} style={styles.postOption} >
+                <View style={cstyles.row}>
+                  <FontAwesome name="photo" size={25} color={"#B334C4"} />
+                  <Text style={[cstyles.bold, {color: "#B334C4", lineHeight: 30, marginLeft: 5}]} >Selling</Text>
+                </View>
+              </Button>
             </View>
           </View>
-        }
-        <Divider color="#D0D1D2"/> 
-        <View style={[row, spaceBetween, { paddingHorizontal: 5, paddingVertical: 10}]} >
-          <Button radius={23} onPress={() => this.handlePress("photo")} active={postType === "photo"}
-            text="Photo" />
-          <Button radius={23} onPress={() => this.handlePress("video")} active={postType === "video"}
-            text="Video" />
-          <Button radius={23} onPress={() => this.handlePress("selling")} active={postType === "selling"}
-            text="Selling" />
-        </View>
-        {/* Post Button */}
-        {
-            Boolean(postText) &&
-            <View>
-              <Divider color="#D0D1D2"/> 
-              <Ripple style={styles.postButton} onPress={this.handlePosting} 
-                rippleContainerBorderRadius={10} rippleDuration={800} >
-                <LinearGradient colors={['#5871B5', '#935CAE']} start={{x: 0.0, y: 0.90}} end={{x: 0.90, y: 1.0}}
-                  style={[styles.postOptions, row, center, { borderRadius: 5, marginRight: 0}]} >
-                  <Text style={{marginHorizontal: 10, color:"#fff", fontSize: 18, fontWeight: "bold"}}>Post</Text>
-                </LinearGradient>
-              </Ripple>
-            </View>
-        }
+        </TouchableWithoutFeedback>
       </View>
     )
   }
@@ -186,10 +84,11 @@ const styles = EStyleSheet.create({
     backgroundColor: "#F8F8F8",
     width: "100%",
     marginVertical: 25,
+    elevation: 5
   },
-  postButton: {
-    marginVertical: 10,
-    marginHorizontal: 35,
+  mainStatusWrapper: {
+    flexDirection: "row",
+    padding: 15 
   },
   textInput: {
     paddingLeft: 10,
@@ -203,12 +102,14 @@ const styles = EStyleSheet.create({
     marginVertical: 10
   },
   postOptions: {
-    backgroundColor: 'transparent', 
-    borderRadius: 23, 
-    flex:1, 
-    height: 50,
+    backgroundColor: 'transparent',
+    borderRadius: 23,
+    flex:1,
     paddingVertical: 5,
-    paddingHorizontal: 20
+    marginVertical: 10,
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+    flexDirection: "row"
   },
   label: {
     fontWeight: "bold",
@@ -218,6 +119,27 @@ const styles = EStyleSheet.create({
   '@media (min-width: 750) and (max-width: 1000)': { // media queries
     container: {
       paddingHorizontal: 100,
-    }
+    },
+    
+  },
+  "@media (max-width: 400)": {
+    textInput: {
+      padding: 0,
+    },
+    postOptions: {
+      paddingHorizontal: 5,
+      marginVertical: 0
+    },
+    mainStatusWrapper: {
+        
+    },
+    userImage: {
+      width: 40,
+      height: 40
+    },
+    postOption: {
+      paddingHorizontal: 0
+    },
   }
+  
 })

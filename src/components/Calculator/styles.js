@@ -1,8 +1,8 @@
-import {
-  StyleSheet
-} from "react-native"
 
-export default StyleSheet.create({
+import EstyleSheet from "react-native-extended-stylesheet"
+import {Button} from 'native-base';
+
+export default EstyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
@@ -51,15 +51,16 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  zeroButton: {
+    width: 170
+  },
   buttonText: {
     fontSize: 30,
     fontWeight: "bold",
     color: "#484848"
   },
   subTitle: {
-    fontWeight: "bold",
     color: "#FCFE80",
-    fontSize: 22,
     marginLeft: 16
   },
   results: {
@@ -81,5 +82,26 @@ export default StyleSheet.create({
     fontWeight: "bold",   
     fontSize: 20,
   },
-  
+  "@media (max-width: 400)": {
+    button: {
+      height: 50,
+      width: 60,
+    },
+    zeroButton: {
+      width: 130
+    },
+    result: {
+      minHeight: 50,
+      marginVertical: 5
+    },
+    resultText: {
+      fontSize: 35
+    },
+    results: {
+      marginVertical: 5
+    },
+    resultsLeftText: {
+      marginVertical: 0
+    }
+  }
 })

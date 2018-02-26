@@ -93,14 +93,14 @@ export default class Post extends React.Component {
               </Button>
             </View>
             <Left>
-              <Thumbnail source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg'}} />
+              <Thumbnail style={styles.userImage} source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg'}} />
               <Body>
-                <Text>NativeBase</Text>
+                <Text style={styles.username} >NativeBase</Text>
                 <View>
                   {
-                    !sponsored  && <Text note>GeekyAnts</Text>
+                    !sponsored  && <Text note style={styles.note}>GeekyAnts</Text>
                   }
-                  <Text note style={{color: "#935CAE"}} >Dec 12 at 5:30 PM</Text>
+                  <Text note style={[{color: "#935CAE"}, styles.note]} >Dec 12 at 5:30 PM</Text>
                 </View>
                 {
                   sponsored && <Text style={{color: "#FE8080"}}>Sponsored</Text>
@@ -193,6 +193,18 @@ const styles = EstyleSheet.create({
   '@media (min-width: 750) and (max-width: 1000)': { // media queries
     container: {
       marginHorizontal: 100
+    }
+  },
+  "@media (max-width: 400)": {
+    userImage: {
+      width: 45,
+      height:45
+    },
+    username: {
+      fontSize: 14
+    },
+    note: {
+      fontSize: 12
     }
   }
   })

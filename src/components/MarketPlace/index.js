@@ -38,6 +38,9 @@ export default class MarketPlace extends React.Component {
   loadMoreProducts = () => {
 
   }
+  componentDidMount() {
+    this.width = Dimensions.get("window").width
+  }
   renderElement = () => {
     return  (
       <View>
@@ -112,7 +115,7 @@ export default class MarketPlace extends React.Component {
             inactiveSlideScale={1}
             activeSlideAlignment="center"
             contentContainerCustomStyle={styles.carousel}
-            itemWidth={300}
+            itemWidth={this.width <= 500 ? 250 : 300}
           />
           <View style={styles.content}>
             <Text style={styles.subTitle}>Products Category</Text>

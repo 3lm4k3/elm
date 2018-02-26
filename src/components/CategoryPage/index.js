@@ -56,7 +56,7 @@ export default class CategoryPage extends React.Component {
           <Picker filled/>
           <Picker/>
         </SubNavBar>
-        <ScrollView style={styles.content}>
+        <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
           <Text style={cstyles.subTitle}>Category Name</Text>
           <ProductsList/>
         </ScrollView>

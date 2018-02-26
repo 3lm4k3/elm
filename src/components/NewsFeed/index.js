@@ -94,9 +94,9 @@ export default class NewsFeed extends React.Component {
         <KeyboardAwareScrollView bounces alwaysBounceVertical onScroll={this.handleScroll}
           showsVerticalScrollIndicator={false}
           style={{ paddingTop: 35, paddingBottom: 200}} extraScrollHeight={150} enableOnAndroid >
-          <H3 style={[cstyles.h3, {color: "#935CAE", fontSize: 22,paddingLeft: 15}]}>Explore El Mawkaa</H3>
+          <H3 style={[cstyles.subTitle,{paddingLeft: 15}]}>Explore El Mawkaa</H3>
           <Carrousel/>
-          <H3 style={[cstyles.h3, {color: "#935CAE", fontSize: 22, paddingLeft: 15}]}>Explore People</H3>
+          <H3 style={[cstyles.subTitle,{paddingLeft: 15}]}>Explore People</H3>
           <NewStatus/>
           <PostsList/>
           <View style={styles.scrollIndicator} ref={ref => this.scrollIndicator = ref} ></View>

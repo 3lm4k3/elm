@@ -16,7 +16,7 @@ export default class HeaderSearchBar extends React.Component {
   width = Dimensions.get("window").width
   handleFocus = () => {
     Animated.timing(animatedWidth, {
-      toValue: this.width >= 750 ? 500 : 250,
+      toValue: this.width >= 750 ? 500 : this.width <= 400 ? 200 : 250,
       duration: 1000,
       easing: Easing.bounce
     }).start()
@@ -56,12 +56,13 @@ const styles = EstyleSheet.create({
     alignItems: "center",
   },
   wrapper: {
-  width: 250,
-  alignItems: "center"
+    width: 250,
+    alignItems: "center"
   },
   inputWrapper: {
     flexDirection: "row",
-    height: 45,
+    height: 40,
+    marginTop: -5
   },
   input: {
     textAlign: "left",
@@ -79,6 +80,20 @@ const styles = EstyleSheet.create({
     },
     wrapper: {
       width: 500
+    }
+  },
+  '@media (max-width: 400)': { // media queries
+    container: {
+      width: 200,
+      height: 35,
+      marginTop: 7.5
+    },
+    wrapper: {
+      width: 200
+    },
+    inputWrapper: {
+      height: 45,
+      marginTop: 0
     }
   }
   })

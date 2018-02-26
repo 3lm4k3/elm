@@ -13,5 +13,8 @@ export default StyleSheet.create({
     borderRadius: 50,
     marginBottom: 50,
     alignSelf: "center"
+  },
+  "@media (max-width: 400)": {
+
   }
-})
+  })

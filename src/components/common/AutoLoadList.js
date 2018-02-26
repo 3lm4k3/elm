@@ -33,12 +33,13 @@ export default class AutoLoadList extends React.Component {
     })
   }
   render() {
+    const { style } = this.props
     return (
-      <ScrollView onScroll={this.handleScroll} style={styles.container} bounces showsVerticalScrollIndicator={false}>
+      <ScrollView onScroll={this.handleScroll} style={[styles.container, style]} bounces showsVerticalScrollIndicator={false}>
         <View style={styles.list} >
           { this.props.children }
         </View>
-      <View style={styles.scrollIndicator} ref={ref => this.scrollIndicator = ref} />          
+        <View style={styles.scrollIndicator} ref={ref => this.scrollIndicator = ref} />
       </ScrollView>
     )
   }
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 50,
-    marginBottom: 50,
+    marginBottom: 25,
     alignSelf: "center"
   }
 })

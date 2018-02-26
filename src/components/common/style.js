@@ -1,9 +1,9 @@
-import { StyleSheet, Dimensions } from "react-native"
+import EstyleSheet from "react-native-extended-stylesheet"
 
-export default StyleSheet.create({
+export default EstyleSheet.create({
   container: {
     flex: 1,
-    width: Dimensions.get("window").width,
+    width: "100%",
   },
   content: {
     paddingHorizontal: 16,
@@ -121,4 +121,9 @@ export default StyleSheet.create({
     color: "#935CAE",
     fontWeight: "bold"
   },
+  "@media (max-width: 400)": {
+    subTitle: {
+      fontSize: 18
+    }
+  }
 })

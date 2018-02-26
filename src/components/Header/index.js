@@ -8,6 +8,7 @@ import {
   StyleSheet
 } from "react-native"
 import Icon from 'react-native-vector-icons/Feather';
+import EstyleSheet from "react-native-extended-stylesheet"
 
 import { Actions } from 'react-native-router-flux';
 
@@ -16,9 +17,9 @@ import cstyles from "../common/style"
 export default class extends React.Component {
   
   render() {
-    const { color, children } = this.props
+    const { color, children, translucent } = this.props
     return (
-      <View style={[styles.Header, { backgroundColor: color }]}>
+      <View style={[styles.Header, { backgroundColor: color}, translucent && {height: 60, paddingVertical: 5}]}>
         {
           children ? children :
             <View style={styles.headerContent} >
@@ -39,18 +40,24 @@ export default class extends React.Component {
 }
 
 
-const styles = StyleSheet.create({
+const styles = EstyleSheet.create({
   Header: {
     alignItems: 'center',
     justifyContent: 'center',
     height: 60,
     paddingVertical: 5,
-    width: Dimensions.get("window").width,
+    width: "100%",
   },
   headerContent: {
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    width: Dimensions.get("window").width,
+    width: "100%",
+  },
+  "@media (max-width: 400)": {
+    Header: {
+      height: 50,
+      paddingVertical: 0
+    }
   }
-})
+  })

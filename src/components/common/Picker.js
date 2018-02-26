@@ -10,6 +10,7 @@ import {
 import LinearGradient from "react-native-linear-gradient"
 import Icon from "react-native-vector-icons/Feather"
 import Ripple from 'react-native-material-ripple';
+import EstyleSheet from "react-native-extended-stylesheet"
 
 
 import cstyles from "./style"
@@ -79,14 +80,14 @@ export default class PickerComponent extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = EstyleSheet.create({
   container: {
     width: 150,
     borderRadius: 5 ,
     overflow: 'hidden',
   },
   indicator: {
-    width: 150,
+    width: "100%",
     padding: 10,
     borderWidth: 2,
     borderColor: '#935CAE',
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     fontSize: 16, 
   },
   dropMenu: {
-    width: 150,
+    width: "100%",
     marginVertical: 5,
     position: "absolute",
     top: 50,
@@ -109,14 +110,23 @@ const styles = StyleSheet.create({
     width: 140,  
     margin: 5,
     overflow: "hidden",
-    elevation: 5,
-    
+    elevation: 10,
+    alignItems: "center"
   },
   menuItemText: {
     color: "#fff",
     textAlign: "center",
     fontSize: 16,
     fontWeight: "bold",
+
+  },
+  "@media (max-width: 500)": {
+    container: {
+      width: 125
+    },
+    menuItem: {
+      width: 115
+    }
   }
 })
 

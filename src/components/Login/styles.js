@@ -53,7 +53,7 @@ export default EstyleSheet.create({
     backgroundColor: "#FEE180",
     borderRadius: 23,
     marginHorizontal: 25,
-    marginVertical: 10,
+    marginVertical: 15,
     width: 350,
     justifyContent: "center",
   },
@@ -62,10 +62,12 @@ export default EstyleSheet.create({
     fontSize: 16,
     fontWeight: "bold"
   },
-  "@media (max-width: 500)": {
+  checkboxLabel: {
+    color: "#fff"
+  },
+  "@media (max-width: 400)": {
     loginOptions: {
-      marginTop: 0,
-      marginBottom: 15
+      marginVertical: 10
     },
     loginOption: {
       width: 250,
@@ -81,6 +83,17 @@ export default EstyleSheet.create({
     loginButton: {
       width: 250,
       alignSelf: "center"
+    },
+    checkboxLabel: {
+      fontSize: 12,
+      marginLeft: -5
+    },
+    belowInputText: {
+      fontSize: 12
+    },
+    "controller:last-child": {
+      justifyContent: "center"
+
     }
   }
 });

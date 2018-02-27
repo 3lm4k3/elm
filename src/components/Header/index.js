@@ -12,7 +12,7 @@ import EstyleSheet from "react-native-extended-stylesheet"
 
 import { Actions } from 'react-native-router-flux';
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class extends React.Component {
   

@@ -2,32 +2,27 @@ import firebase from "firebase"
 import "../firebase/index"
 import FBSDK, { LoginManager, AccessToken } from "react-native-fbsdk"
 import { GoogleSignin } from "react-native-google-signin"
-import { ToastAndroid } from "react-native"
 const querystring = require("qs")
 
 
 export const startFacebookLogin = () => {
   return (dispatch, getState) => {
     // Attempt a login using the Facebook login dialog asking for default permissions.
-    LoginManager.logInWithReadPermissions(['public_profile']).then(
+    LoginManager.logInWithReadPermissions(['public_profile', "email"]).then(
       function(result) {
         if (result.isCancelled) {
           alert('Login cancelled');
         } else {
           AccessToken.getCurrentAccessToken().then(accessTokenData => {            
-            const credential = firebase.auth.FacebookAuthProvider.credential(accessTokenData.accessToken)
-            return firebase.auth().signInWithCredential(credential).then(result => {
-              console.log(result)
-              dispatch(setCurrentUser(result))
+            const credential = firebase.auth.FacebookAuthProvider.credential(accessTokenData.accessToken)            
+            firebase.auth().signInWithCredential(credential).then(result => {
+                console.log(result);
+            }).catch(e => {
+              console.log(e)
             })
+            
           }).catch(e => {
-            ToastAndroid.showWithGravityAndOffset(
-              e.message,
-              ToastAndroid.LONG,
-              ToastAndroid.BOTTOM,
-              25,
-              50
-            );
+            console.log(e)
           })
         }
       },
@@ -53,13 +48,6 @@ export const startGoogleLogin = () => {
           
         })
       }).catch(e => {
-        ToastAndroid.showWithGravityAndOffset(
-          e.message,
-          ToastAndroid.LONG,
-          ToastAndroid.BOTTOM,
-          25,
-          50
-        );
       console.log(e)
         
       })
@@ -101,7 +89,7 @@ export const startLinkedinLogin = (token) => {
       dispatch(setHideSpinner())
       
       return firebase.auth().signInWithCustomToken(token).then(() => {
-        dispatch(setCurrentUser(result))
+        dispatch(setCurrentUser(json))
       })
       
     }).catch(e => {

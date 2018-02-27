@@ -25,7 +25,7 @@ import SearchBar from "./common/HeaderSearchBar"
 import Carrousel from "./common/Carrousel"
 
 import { CategoryCard } from './common';
-import cstyles from "./common/style"
+import cstyles from "./common/styles"
 const { width, height } = Dimensions.get('window')
 export default class CalculationsScreen extends React.Component {
   render(){

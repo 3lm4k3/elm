@@ -18,7 +18,7 @@ import {
   Tab,TabHeading,
   Footer,
   FooterTab} from "native-base";
-import cstyles from "./common/style"
+import cstyles from "./common/styles"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
 import Icon from "react-native-vector-icons/Feather"

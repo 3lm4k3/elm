@@ -16,7 +16,7 @@ import ReadMore from "react-native-read-more-text"
 import Fixed5Stars from "../common/Fixed5Stars"
 import AutoLoadList from "../common/AutoLoadList"
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 
 export default class ProductsList extends React.Component {

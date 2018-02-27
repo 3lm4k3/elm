@@ -23,7 +23,7 @@ import Ripple from "react-native-material-ripple"
 import EstyleSheet from "react-native-extended-stylesheet"
 import { connect } from "react-redux"
 import LinkedInModal from 'react-native-linkedin'
-
+import firebase from "firebase"
 
 import Header from "../Header/index"  // Header Component
 import Divider from "../common/Divider"  // Header Component
@@ -52,6 +52,12 @@ class Login extends React.Component {
   handleLogin = () => {
     const { email, passwordText:password } = this.state
     this.props.dispatch(startSignUp(email, password ))
+  }
+  handleFirebaseTest = () => {
+    firebase.database().ref("users").once("value", (user)=> {
+        console.log(user);
+        
+    })
   }
   render() {
     const { state } = this
@@ -139,7 +145,8 @@ class Login extends React.Component {
                 <Text style={[cstyles.underlined, cstyles.white, styles.belowInputText]}>I don't have an Account</Text>                
                 </TouchableWithoutFeedback>
               </View>
-              <Button style={styles.loginButton} onPress={this.handleLogin}>
+              <Button style={styles.loginButton} onPress={this.handleFirebaseTest}>
+              {/* <Button style={styles.loginButton} onPress={this.handleLogin}> */}
                 <Text style={styles.loginButtonText}>Login</Text>
               </Button>
               

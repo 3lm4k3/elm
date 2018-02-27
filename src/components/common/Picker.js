@@ -13,7 +13,7 @@ import Ripple from 'react-native-material-ripple';
 import EstyleSheet from "react-native-extended-stylesheet"
 
 
-import cstyles from "./style"
+import cstyles from "./styles"
 
 export default class PickerComponent extends React.Component {
   state = {

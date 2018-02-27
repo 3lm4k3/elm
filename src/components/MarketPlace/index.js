@@ -25,7 +25,7 @@ import SearchBar from "../common/HeaderSearchBar"
 import ProductsList from "../ProductsList/index";
 
 import styles from "./styles"
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class MarketPlace extends React.Component {
   state= {

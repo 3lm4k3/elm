@@ -16,7 +16,7 @@ import IonIcons from "react-native-vector-icons/Ionicons"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 import Divider from "../common/Divider";
 import Button from "../common/RippleButton";
 

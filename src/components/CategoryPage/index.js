@@ -21,7 +21,7 @@ import SearchBar from "../common/HeaderSearchBar"
 import Picker from "../common/Picker"
 import ProductsList from "../ProductsList/index"
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class CategoryPage extends React.Component {
   state= {

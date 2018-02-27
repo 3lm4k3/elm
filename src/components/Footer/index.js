@@ -12,7 +12,7 @@ import LineIcon from "react-native-vector-icons/SimpleLineIcons"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { Actions } from "react-native-router-flux"
 
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class FooterComponent extends React.Component {
   render() {

@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import TagList from './TagList';
 import reducers from '../reducers';
-import cstyles from "./common/style"
+import cstyles from "./common/styles"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
 import Icon from "react-native-vector-icons/Feather"

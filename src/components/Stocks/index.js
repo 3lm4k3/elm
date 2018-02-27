@@ -23,7 +23,7 @@ import Picker from "../common/Picker"
 import StocksList from "../StocksList/index";
 
 import styles from "./styles"
-import cstyles from "../common/style"
+import cstyles from "../common/styles"
 
 export default class Stocks extends React.Component {
   state = {

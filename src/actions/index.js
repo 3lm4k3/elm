@@ -3,6 +3,9 @@ import "../firebase/index"
 import FBSDK, { LoginManager, AccessToken } from "react-native-fbsdk"
 import { GoogleSignin } from "react-native-google-signin"
 const querystring = require("qs")
+import { Actions } from "react-native-router-flux"
+
+import { addBasicEntities, addSupportingEntities } from "../utils/index"
 
 
 export const startFacebookLogin = () => {
@@ -32,6 +35,8 @@ export const startFacebookLogin = () => {
     );
   }
 }
+
+
 export const startGoogleLogin = () => {
   return (dispatch, getState) => {
     
@@ -44,8 +49,6 @@ export const startGoogleLogin = () => {
         return firebase.auth().signInWithCredential(credential).then(currentUser=> {
           const user  = currentUser.toJSON()
           console.log(JSON.stringify(user))
-          dispatch(setCurrentUser(user))
-          
         })
       }).catch(e => {
       console.log(e)
@@ -89,7 +92,7 @@ export const startLinkedinLogin = (token) => {
       dispatch(setHideSpinner())
       
       return firebase.auth().signInWithCustomToken(token).then(() => {
-        dispatch(setCurrentUser(json))
+
       })
       
     }).catch(e => {
@@ -105,7 +108,6 @@ export const startLogin = (email, password)=> {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => {
       console.log(user)
-      dispatch(setCurrentUser(user))      
     })
     .catch(e => {
       console.log(e.message)
@@ -113,16 +115,46 @@ export const startLogin = (email, password)=> {
   }
 }
 
-export const startSignUp = (email, password) => {
+
+
+
+
+setBasicEntities = (entities) => {
   return (dispatch, getState) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((user) => {
-      console.log(user)
-      dispatch(setCurrentUser(user))
+    const userId = getState().currentUser.uid
+    addBasicEntities(userId, entities).then(json => {
+      dispatch({
+        type: "SET_BASIC_ENTITIES",
+        entities: json
+      })
+      dispatch(setSupportingEntities(entities))
+    }).catch(e => {
+      alert(e)
     })
-    .catch(e => {
-      console.log(e.message)
+  }
+}
+removeBasicEntities = (entities) => {
+  return {
+    type: "REMOVE_BASIC_ENTITIES",
+  }
+}
+setSupportingEntities = (entities) => {
+  return (dispatch, getState) => {
+    const userId = getState().currentUser.uid
+    addSupportingEntities(userId, entities).then(json => {
+      dispatch({
+        type: "SET_SUPPORTING_ENTITIES",
+        entities: json
+      })
+    }).catch(e => {
+      alert(e)
     })
+  }
+}
+removeSupportingEntities = (entities) => {
+  return (dispatch, getState) => {
+    const userId = getState().currentUser.uid
+    addBasicEntities(userId, entities)
   }
 }
 

@@ -43,21 +43,13 @@ class Login extends React.Component {
   handleLinkedinLogin = (token) => {
     console.log(token.access_token)
     this.props.dispatch(startLinkedinLogin(token.access_token))
-    
   }
   handleLinkedinLoginError = (e) => {
     console.log(e);
-    
   }
   handleLogin = () => {
     const { email, passwordText:password } = this.state
-    this.props.dispatch(startSignUp(email, password ))
-  }
-  handleFirebaseTest = () => {
-    firebase.database().ref("users").once("value", (user)=> {
-        console.log(user);
-        
-    })
+    this.props.dispatch(startLogin(email, password ))
   }
   render() {
     const { state } = this
@@ -145,8 +137,7 @@ class Login extends React.Component {
                 <Text style={[cstyles.underlined, cstyles.white, styles.belowInputText]}>I don't have an Account</Text>                
                 </TouchableWithoutFeedback>
               </View>
-              <Button style={styles.loginButton} onPress={this.handleFirebaseTest}>
-              {/* <Button style={styles.loginButton} onPress={this.handleLogin}> */}
+              <Button style={styles.loginButton} onPress={this.handleLogin}>
                 <Text style={styles.loginButtonText}>Login</Text>
               </Button>
               

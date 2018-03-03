@@ -18,7 +18,7 @@ import Stocks from "./src/components/Stocks/index" // Calculator Component
 import MarketPlace from "./src/components/MarketPlace/index" // Calculator Component
 import PostLightBox from "./src/components/PostLightBox/index"
 //first Login Screen
-import FirstScreen from "./src/components/Sign up";
+import FirstScreen from "./src/components/SignUp/index";
 //second Login Screen
 import TakeTourScreen from "./src/components/Take a Tour login and signup";
 import TermsScreen from "./src/components/TermsNConditions"
@@ -63,7 +63,7 @@ class App extends React.Component {
           <Lightbox>
             <Scene key="root" hideNavBar> 
               <Scene key="login" initial component={Login} title="Login"/>
-              <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
+              <Scene key="newsfeed" component={NewsFeed} title="NewsFeed"/>
               <Scene key="bids"  component={Bids} title="Bids"/>
               <Scene key="bid" component={BidPage} title="Bid"/> 
               <Scene key="createbid" component={CreateBid} title="Bid"/>
@@ -73,7 +73,6 @@ class App extends React.Component {
               <Scene key="market"   component={MarketPlace} title="MarketPlace"/>
               <Scene key="category"  component={CategoryPage} title="Category"/>
               <Scene key="product"  component={ProductPage} title="Product"/>
-              {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
               <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
               <Scene key="register"  component={FirstScreen} title="New Account"/>
               <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
@@ -100,7 +99,5 @@ class App extends React.Component {
 EStyleSheet.build({
   $primaryColor: "#5871B5"
 })
-
-
 export default App
 

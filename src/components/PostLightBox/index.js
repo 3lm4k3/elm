@@ -86,38 +86,11 @@ export default class PostLightBox extends React.Component {
     this.setState({ postText: text })
   }
   handlePosting = () => {
-    const text = this.state.postText
-    fetch("https://us-central1-elmawkaa.cloudfunctions.net/addMessage?text=" + text)
-      .then((res) => {
-        if(res.status === 200) {
-          console.log(res)
-          return res.json()
-        }
-      }).then(json => {
-      ToastAndroid.showWithGravityAndOffset(
-        json.message,
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-        25,
-        50
-      );
-    }).catch(e => {
-      ToastAndroid.showWithGravityAndOffset(
-        e.message,
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-        25,
-        50
-      );
-    })
   }
   render() {
     const { postType, postText } = this.state
     return (
       <View style={styles.container}>
-        <Header>
-
-        </Header>
         <View style={styles.mainStatusWrapper}>
           <Thumbnail style={styles.userImage} source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg'}} />
           <AutoGrowingTextInput
@@ -194,5 +167,37 @@ const styles = EstyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0
+  },
+  mainStatusWrapper: {
+    flexDirection: "row",
+    padding: 15 
+  },
+  textInput: {
+    paddingLeft: 10,
+    fontSize: 17,
+    flex: 1,
+    borderWidth: 0,
+  },
+  inputWrapper: {
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    marginVertical: 10
+  },
+  postOptions: {
+    backgroundColor: "red",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'transparent',
+    flex:1,
+    paddingVertical: 5,
+    marginVertical: 10,
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+    flexDirection: "row",
+    borderTopWidth: 1,
+    borderTopColor: "lightgray",
+    
   }
 })

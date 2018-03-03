@@ -81,6 +81,14 @@ class App extends React.Component {
               <Scene key="References"  component={ReferencesScreen} title="References"/>
               <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
               <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
+              <Scene key="membership"  component={MembershipScreen} title="membership"/>
+              <Scene key="calculations" initial component={CalculationsScreen} title="calculations"/>
+              <Scene key="terms"  component={TermsScreen} title="terms"/>
+
+              <Scene key="verfication"  component={VerficationScreen} title="verfication"/>
+              <Scene key="codes"  component={CodesScreen} title="codes" />
+              <Scene key="finishing"  component={FinishingScreen} title="finishing" />
+
             </Scene>
 
             {/* Lightbox components will lay over the screen, allowing transparency*/}

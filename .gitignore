@@ -8,7 +8,7 @@
 /ios
 /android
 /.idea
-/firebase
+/firebase/functions/node_modules
 
 
 # misc

@@ -62,27 +62,41 @@ class App extends React.Component {
         <Router>
           <Lightbox>
             <Scene key="root" hideNavBar> 
-              <Scene key="login" initial component={Login} title="Login"/>
-              <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
-              <Scene key="bids"  component={Bids} title="Bids"/>
-              <Scene key="bid" component={BidPage} title="Bid"/> 
-              <Scene key="createbid" component={CreateBid} title="Bid"/>
-              <Scene key="more"  component={MoreScreen} title="more"/>
-              <Scene key="calculator" component={Calculator} title="Calculator"/>
-              <Scene key="stocks"  component={Stocks} title="Stocks"/>
-              <Scene key="market"   component={MarketPlace} title="MarketPlace"/>
-              <Scene key="category"  component={CategoryPage} title="Category"/>
-              <Scene key="product"  component={ProductPage} title="Product"/>
-              {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
-              <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
-              <Scene key="register"  component={FirstScreen} title="New Account"/>
-              <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
-              <Scene key="profiles" component={ProfilesScreen} title="Profiles"/>
-              <Scene key="pdfPage" component={PDFPage} title="pdfPage"/>
-              <Scene key="References"  component={ReferencesScreen} title="References"/>
-              <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
-              <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
-            </Scene>
+            <Scene key="login"  component={Login} title="Login"/>
+            <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
+            <Scene key="bids"  component={Bids} title="Bids"/>
+            <Scene key="bid"  component={BidPage} title="Bid"/>
+            <Scene key="createbid" component={CreateBid} title="Bid"/>
+            <Scene key="more"  component={MoreScreen} title="more"/>
+            <Scene key="membership"  component={MembershipScreen} title="membership"/>
+            <Scene key="calculator"  component={Calculator} title="Calculator"/>
+
+            <Scene key="calculations" initial component={CalculationsScreen} title="calculations"/>
+            <Scene key="stocks"  component={Stocks} title="Stocks"/>
+            <Scene key="terms"  component={TermsScreen} title="terms"/>
+            
+            <Scene key="market"  component={MarketPlace} title="MarketPlace"/>
+            <Scene key="category"  component={CategoryPage} title="Category"/>
+            <Scene key="verfication"  component={VerficationScreen} title="verfication"/>
+            <Scene key="product"  component={ProductPage} title="Product"/>
+            {/* <Scene key="login" component={TakeTourScreen} title="TakeTourScreen"/> */}
+            <Scene key="codes"  component={CodesScreen} title="codes" />
+            <Scene key="finishing"  component={FinishingScreen} title="finishing" />
+            <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
+            <Scene key="register"   component={FirstScreen} title="New Account"/>
+            <Scene key="home"  component={AfterSignupScreen} title="AfterSignupScreen"/>
+            <Scene key="profiles"  component={ProfilesScreen} title="Profiles"/>
+            <Scene key="pdfPage"  component={PDFPage} title="pdfPage"/>
+            <Scene key="References"  component={ReferencesScreen} title="References"/>
+            <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
+
+            <Scene key="CategoryProsScreen"   component={CategoryProsScreen} title="CategoryProsScreen"/>
+
+
+
+
+
+          </Scene>
 
             {/* Lightbox components will lay over the screen, allowing transparency*/}
             <Scene key="imageLightBox" component={ImageLightBox} />

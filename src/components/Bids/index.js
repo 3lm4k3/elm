@@ -19,7 +19,8 @@ import {
 import Icon from "react-native-vector-icons/Feather"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import LineIcon from "react-native-vector-icons/SimpleLineIcons"
-import { Actions, ActionConst } from "react-native-router-flux"
+import { Actions } from "react-native-router-flux"
+import { connect } from "react-redux"
 
 import Header from "../Header/index"
 import BidPage from "../BidPage/index"
@@ -35,7 +36,7 @@ import AutoLoadList from "../common/AutoLoadList"
 import cstyles from "../common/styles"
 
 
-export default class Bids extends React.Component {
+class Bids extends React.Component {
   state = {
   }
   closeDrawer = () => {
@@ -154,3 +155,5 @@ const styles = StyleSheet.create({
     marginVertical: 25,
   },
 })
+
+export default connect()(Bids)

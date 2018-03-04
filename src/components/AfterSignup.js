@@ -4,11 +4,7 @@ import {
   Dimensions,
   View, 
   StyleSheet,
-  Image,
   TouchableOpacity,
-  TextInput,
-  StatusBar,
-  Picker,
   TouchableHighlight,
   ScrollView
 } from 'react-native';
@@ -16,13 +12,11 @@ import { connect } from 'react-redux';
 import _ from "underscore"
 import LinearGradient from 'react-native-linear-gradient';
 import { Actions,PARAMS } from 'react-native-router-flux'
-import { createStore } from 'redux';
 
-
-import reducers from '../reducers';
 import Header from "./Header/index"
 import TagList from './TagList';
 import Panel from './Panel'; 
+import { addBasicEntities, addSupportingEntities} from "../utils/index"
 
 import cstyles from "./common/styles"
 
@@ -116,6 +110,7 @@ class AfterSignupScreen extends React.Component {
   }
   handleSubmission = () => {
     const userId = this.props.currentUser.uid
+    console.log(userId)
     let { 
       selectedCountry, selectedProfession, selectedInterests,
       countries, interests, professions
@@ -123,19 +118,14 @@ class AfterSignupScreen extends React.Component {
     interests = interests.filter((el, index) => {
       return selectedInterests.includes(index) ? el : null
     })
-    fetch("https://us-central1-elmawkaa-8bcab.cloudfunctions.net/addBasicEntities", {
-      method: "POST",
-      body: JSON.stringify({
-        userId,
+      const entities = {
         profession: professions[selectedProfession].text,
         country: countries[selectedCountry].text,
-        interests 
-      })
-    })
+        interests
+      }
+    addBasicEntities(userId, entities)
     .then(res => {
-      // console.log(res.statusCode)
-      alert(res.status)
-      
+
     })
     .catch(e => {
       alert(e.message)
@@ -190,13 +180,10 @@ class AfterSignupScreen extends React.Component {
       )
     })
   }
+  componentWillMount() {
+    !(_.isEmpty(this.props.basicEntities)) ? Actions.newsfeed() : null
+  }
 	render(){
-		const { countries, interests, professions } = this.state;
-    
-		const { goBack } = this.props.navigation;
-    
-    const { navigate } = this.props.navigation;
-
 		return (
 <LinearGradient colors={['#5871B5', '#935CAE']} style={styles.container} >
 
@@ -317,6 +304,7 @@ var styles = StyleSheet.create({
 
 export default connect(
   (state) => ({
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    basicEntities: state.basicEntities
   })
 )(AfterSignupScreen)

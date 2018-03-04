@@ -57,16 +57,7 @@ export const startGoogleLogin = () => {
 
         })
       }).catch(e => {
-        ToastAndroid.showWithGravityAndOffset(
-          e.message,
-          ToastAndroid.LONG,
-          ToastAndroid.BOTTOM,
-          25,
-          50
-        );
-      console.log(e)
-
-        
+        alert(e.message)
       })
     }).catch(e => {
       console.log(e);
@@ -133,7 +124,7 @@ export const startLogin = (email, password)=> {
 
 
 
-setBasicEntities = (entities) => {
+export const setBasicEntities = (entities) => {
   return (dispatch, getState) => {
     const userId = getState().currentUser.uid
     addBasicEntities(userId, entities).then(json => {
@@ -147,12 +138,12 @@ setBasicEntities = (entities) => {
     })
   }
 }
-removeBasicEntities = (entities) => {
+export const removeBasicEntities = () => {
   return {
     type: "REMOVE_BASIC_ENTITIES",
   }
 }
-setSupportingEntities = (entities) => {
+export const setSupportingEntities = (entities) => {
   return (dispatch, getState) => {
     const userId = getState().currentUser.uid
     addSupportingEntities(userId, entities).then(json => {
@@ -165,16 +156,19 @@ setSupportingEntities = (entities) => {
     })
   }
 }
-removeSupportingEntities = (entities) => {
+
+export const removeSupportingEntities = () => {
   return (dispatch, getState) => {
-    const userId = getState().currentUser.uid
-    addBasicEntities(userId, entities)
+    dispatch({
+      type: "REMOVE_SUPPORTING_ENTITIES",
+    })
   }
 }
 
 export const startLogout = ()=> {
   return (dispatch, getState) =>{
     return firebase.auth().signOut().then(()=>{
+      dispatch(logout(), removeBasicEntities(), removeSupportingEntities())
     }).catch(e => e)
   }
 }
@@ -199,3 +193,11 @@ export const setHideSpinner = () => {
   }
 }
 
+export const redirectIfAuthorized = () => {
+  return (dispatch, getState) => {
+    const { currentUser } = getState()
+    if(!(_.isEmpty(currentUser))) {
+      Actions.newsfeed()
+    }
+  }
+}

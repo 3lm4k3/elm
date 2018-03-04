@@ -17,6 +17,7 @@ import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import firebase from "firebase"
 import { connect } from "react-redux"
+import _ from "underscore"
 
 import { strings } from '../../i18n';
 import {
@@ -46,7 +47,9 @@ class FirstScreen extends React.Component {
         console.log(e.message)
       })
   }
-  
+  componentWillMount() {
+    !(_.isEmpty(this.props.currentUser)) ? Actions.home() : null
+  }
 	render(){
     const { state } = this
     const {  dispatch } = this.props
@@ -62,11 +65,9 @@ class FirstScreen extends React.Component {
             <Text style={styles.headerText}>{strings('signup.header_Txt')}</Text>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center',}}>
-
           <TouchableOpacity style={styles.accountLoginBtn} onPress={() => Actions.login()}>
             <Text style={styles.accountLoginText}> {strings('signup.haveAccount_Btn')} </Text>
           </TouchableOpacity>
-
         </View>
 
         {/* setting the divider line color */}
@@ -151,4 +152,8 @@ class FirstScreen extends React.Component {
 	}
 }
 
-export default connect()(FirstScreen)
+export default connect(
+  state => ({
+    currentUser: state.currentUser
+  })
+)(FirstScreen)

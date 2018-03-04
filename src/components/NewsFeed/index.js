@@ -1,11 +1,8 @@
 import React from "react"
 import { 
-  StyleSheet, 
-  Text, 
   View,
   Dimensions,
   StatusBar,
-  ScrollView
 } from 'react-native';
 import { 
   Button,
@@ -14,6 +11,7 @@ import {
   Thumbnail,
   H3,
 } from "native-base"
+import { connect } from 'react-redux'
 import Icon from "react-native-vector-icons/Feather"
 import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -32,7 +30,7 @@ import cstyles from "../common/styles"
 
 const { width, height } = Dimensions.get('window')
 
-export default class NewsFeed extends React.Component {
+class NewsFeed extends React.Component {
   state = {
     searchText: "",
     loadMore: false,
@@ -64,8 +62,8 @@ export default class NewsFeed extends React.Component {
     })
   }
   render () {
-    console.log("Width:", Dimensions.get("window").width)
     const { searchText, showImageModal } = this.state
+    const { currentUser } = this.props
     return (
       <View style={styles.container}>
         <StatusBar
@@ -75,7 +73,7 @@ export default class NewsFeed extends React.Component {
         />
         <Header color="#F7F7F7" >
           <View style={cstyles.left} >
-            <Button transparent onPress={() => Actions.login()}>
+            <Button transparent onPress={() => Actions.VisitedProfileProjects({id: currentUser.uid })}>
               <Thumbnail small source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg'}} />   
             </Button>         
           </View>
@@ -113,3 +111,9 @@ export default class NewsFeed extends React.Component {
     )
   }
 }
+
+export default connect(
+  state => ({
+    currentUser: state.currentUser
+  })
+)(NewsFeed)

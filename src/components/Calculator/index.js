@@ -23,8 +23,8 @@ export default class Calculator extends React.Component {
   }
   handleButtonPress = (text) => {
     const { screenText } = this.state
-    if(text === "."){
-      if(!(screenText.contains("."))) {
+    if(text === ".") {
+      if(!(screenText.includes("."))) {
         this.setState(state => ({
           screenText: state.screenText + text
         }))
@@ -63,16 +63,16 @@ export default class Calculator extends React.Component {
           </Header>
           <Text style={[cstyles.subTitle, styles.subTitle]} >Flat Slab</Text>
           <View style={styles.results} >
-            {
-              formulaList.map(el => {
-                return (
-                  <View style={styles.resultsRow} >
-                    <Text style={styles.resultsLeftText} >{el.text}=</Text>
-                    <Text style={styles.resultsRightText} >{ el.formula(Number(screenText)).toFixed(2) }</Text> 
-                </View>
-                )
-              })
-            }
+            {/*{*/}
+              {/*formulaList.map(el => {*/}
+                {/*return (*/}
+                  {/*<View style={styles.resultsRow} >*/}
+                    {/*<Text style={styles.resultsLeftText} >{el.text}=</Text>*/}
+                    {/*<Text style={styles.resultsRightText} >{ el.formula(Number(screenText)).toFixed(2) }</Text> */}
+                {/*</View>*/}
+                {/*)*/}
+              {/*})*/}
+            {/*}*/}
             
           </View>
           <View style={styles.result} >

@@ -36,7 +36,8 @@ import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
 import CategoryPage from "./src/components/CategoryPage/index"
 import ProductPage from "./src/components/ProductPage/index"
-
+import PublicScene from "./src/components/PublicScene/index"
+import PrivateScene from "./src/components/PrivateScene/index"
 import { configure } from "./src/store/index"
 
 
@@ -47,7 +48,7 @@ class App extends React.Component {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
-        store.dispatch(setCurrentUser(user))
+        store.dispatch(setCurrentUser(user))  
         console.log(user);
         
       } else {
@@ -61,9 +62,11 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <Lightbox>
-            <Scene key="root" hideNavBar> 
-              <Scene key="login" initial component={Login} title="Login"/>
-              <Scene key="newsfeed" component={NewsFeed} title="NewsFeed"/>
+            <Scene key="root" hideNavBar={true}>
+              <Scene key="login" initial  component={Login} title="Login"/>
+              <PrivateScene >
+                <Scene key="newsfeed" component={NewsFeed} title="NewsFeed" hideNavBar={true}/>
+              </PrivateScene>
               <Scene key="bids"  component={Bids} title="Bids"/>
               <Scene key="bid" component={BidPage} title="Bid"/> 
               <Scene key="createbid" component={CreateBid} title="Bid"/>
@@ -74,15 +77,15 @@ class App extends React.Component {
               <Scene key="category"  component={CategoryPage} title="Category"/>
               <Scene key="product"  component={ProductPage} title="Product"/>
               <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
-              <Scene key="register"  component={FirstScreen} title="New Account"/>
+              <Scene key="register" component={FirstScreen} title="SignUp"/>
               <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
               <Scene key="profiles" component={ProfilesScreen} title="Profiles"/>
               <Scene key="pdfPage" component={PDFPage} title="pdfPage"/>
               <Scene key="References"  component={ReferencesScreen} title="References"/>
-              <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
+              <Scene key="VisitedProfileProjects" component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
               <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
               <Scene key="membership"  component={MembershipScreen} title="membership"/>
-              <Scene key="calculations" initial component={CalculationsScreen} title="calculations"/>
+              <Scene key="calculations" component={CalculationsScreen} title="calculations"/>
               <Scene key="terms"  component={TermsScreen} title="terms"/>
 
               <Scene key="verfication"  component={VerficationScreen} title="verfication"/>

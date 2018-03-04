@@ -78,11 +78,11 @@ export default class CalculationsScreen extends React.Component {
         <View style={{flexDirection:'row',marginLeft:width*0.05,flex:1,justifyContent:'space-around',alignItems:'center'}}>
         
           <FlatList
-          
+           
             
             data={[
                       {key:1,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Solid Slab',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 18 ,
@@ -90,21 +90,21 @@ export default class CalculationsScreen extends React.Component {
                           },
                           {
                             formula: x => x * 0.144 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "gravel(m3)"
                           },
                           {
-                            formula: x => x * 0.09 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: x => x *  0.09 ,
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.063 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Cement(ton)"
                           },
-                        ]
+                        ],two:false,title:"Solid Slab",firstPlaceholder:"Ceiling area (m2)"
                        })}},
 
                        {key:2,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Solid Slab',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 26.4 ,
@@ -112,21 +112,21 @@ export default class CalculationsScreen extends React.Component {
                           },
                           {
                             formula: x => x * 0.176 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "gravel(m3)"
                           },
                           {
                             formula: x => x * 0.11 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.077 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Cement(ton)"
                           },
-                        ]
+                        ],two:false,firstPlaceholder:"Ceiling area (m2)",title:"Solid Slab"
                        })}},
 
                        {key:3,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Bases & Smelles',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 18 ,
@@ -134,41 +134,41 @@ export default class CalculationsScreen extends React.Component {
                           },
                           {
                             formula: x => x * 0.16 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "gravel(m3)"
                           },
                           {
                             formula: x => x * 0.1 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.07 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Cement(ton)"
                           },
-                        ]
+                        ],two:false,firstPlaceholder:"Land area (m2)",title:"Bases & Smelles"
                        })}},
                        {key:4,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Raft',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 9 ,
+                            formula: (x,y) => x * y * 9 ,
                             text: "Steel Quantity (Kg)"
                           },
                           {
-                            formula: x => x * 0.08 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.08 ,
+                            text: "gravel(m3)"
                           },
                           {
-                            formula: x => x * 0.05 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.05 ,
+                            text: "Sand(m3)"
                           },
                           {
-                            formula: x => x * 0.035 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.035 ,
+                            text: "Cement(ton)"
                           },
-                        ]
+                        ],two:true,firstPlaceholder:"Land area (m2)",title:"Raft",secondPlaceholder:"no. of floors"
                        })}},
                        {key:5,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Columns',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 12 ,
@@ -176,105 +176,105 @@ export default class CalculationsScreen extends React.Component {
                           },
                           {
                             formula: x => x * 0.064 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "gravel(m3)"
                           },
                           {
                             formula: x => x * 0.04 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.028 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Cement(ton)"
                           },
-                        ]
+                        ],two:false,firstPlaceholder:"Land area (m2)",title:"Columns"
                        })}},
-                       {key:6,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       {key:5,materialPic:require('../assets/images/prices.png'),
+                       materialName:'Wood',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.05 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "solid slap ceiling"
                           },
                           {
                             formula: x => x * 0.037 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "hollow block ceiling"
                           },
                           {
                             formula: x => x * 0.037 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Flat slap ceiling"
                           },
                           {
                             formula: x => x * 0.045 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Viens Quantity"
                           },
-                        ]
+                        ],two:false,firstPlaceholder:"Ceiling area (m2)",title:"Wood"
                        })}},
                        {key:7,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Hollow Block',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.01667 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Steel quantity(ton)"
                           },
                           {
                             formula: x => x * 0.176 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "gravel(m3)"
                           },
                           {
                             formula: x => x * 0.088 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.077 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Cement(ton)"
                           },
-                        ]
+                        ],two:false,firstPlaceholder:"Ceiling area (m2)",title:"Hollow Block"
                        })}},
                        {key:8,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Bricks',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.05 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.33 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                           {
                             formula: x => x * 95 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "gravels number"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Floor surface (m2)",title:"Bricks"
                        })}},
                        {key:9,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Internal Walls Plastering',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.03 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.2 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                          
-                        ]
+                        ],two:false,firstPlaceholder:"Walls area (m2)",title:"Internal Walls Plastering"
                        })}},
                        {key:10,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Facade Plastering',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.05 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.3 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Walls area (m2)",title:"Facade Plastering"
                        })}},
                        
                        
@@ -306,132 +306,132 @@ export default class CalculationsScreen extends React.Component {
             
             data={[
                       {key:1,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Internal Plastering',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 0.03 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.03 ,
+                            text: "Sand(m3)"
                           },
                           {
-                            formula: x => x * 0.2 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.2 ,
+                            text: "cement(bag)"
                           },
                           
-                        ]
+                        ],two:true,firstPlaceholder:"Flat area (m2)",secondPlaceholder:"Floor height(m)",title:"Internal Plastering"
                        })}},
                        {key:2,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Wall Ceramic',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x *  0.034 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x *  0.2 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Walls area (m2)",title:"Wall Ceramic"
                        })}},
                        {key:3,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Flooring Ceramic',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.13 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.2 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Floor surface (m2)",title:"Flooring Ceramic"
                        })}},
                        {key:4,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Wall Marble',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.032 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.25 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Walls area (m2)",title:"Wall Marble"
                        })}},
                        {key:5,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Flooring Marble',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
                             formula: x => x * 0.11 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "Sand(m3)"
                           },
                           {
                             formula: x => x * 0.25 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "cement(bag)"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Floor surface (m2)",title:"Flooring Marble"
                        })}},
                        {key:6,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Paste',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 0.17 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.17 ,
+                            text: "paste(kg)"
                           },
                           
-                        ]
+                        ],two:true,firstPlaceholder:"Walls area (m2)",secondPlaceholder:"no. of layers",title:"Paste"
                        })}},
                        {key:7,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Paint',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 0.067 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.067 ,
+                            text: "paint(litre)"
                           },
                           
-                        ]
+                        ],two:true,firstPlaceholder:"Walls area (m2)",secondPlaceholder:"no. of layers",title:"Paint"
                        })}},
                        {key:8,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Bitumen Insulation',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 0.5 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.5 ,
+                            text: "bitumen(kg)"
                           },
                           
-                        ]
+                        ],two:true,firstPlaceholder:"Insulation surface (m2)",secondPlaceholder:"no. of layers",title:"Bitumen Insulation"
                        })}},
                        {key:9,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Membrane Insulation',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 0.112 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: (x,y) => x * y * 0.112 ,
+                            text: "mimberane(roll)"
                           },
                           
-                        ]
+                        ],two:true,firstPlaceholder:"Insulation surface (m2)",secondPlaceholder:"no. of layers",title:"Membrane Insulation"
                        })}},
                        {key:10,materialPic:require('../assets/images/prices.png'),
-                       materialName:'material name',onPress:()=>{Actions.calculator({
+                       materialName:'Steel',onPress:()=>{Actions.calculator({
                         formulaList: [
                           {
-                            formula: x => x * 0.00785 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: x => x * x *0.00785 ,
+                            text: "area(cm2)"
                           },
                           {
-                            formula: x => x * 162 ,
-                            text: "Steel Quantity (Kg)"
+                            formula: x => x * x / 162 ,
+                            text: "weight(kg/m)"
                           },
                           {
                             formula: x => x * 13500 ,
-                            text: "Steel Quantity (Kg)"
+                            text: "steel Bars number per ton"
                           },
                           
-                        ]
+                        ],two:false,firstPlaceholder:"Skewer Diameter",title:"Steel"
                        })}},
               
             ]}

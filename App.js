@@ -62,7 +62,7 @@ class App extends React.Component {
         <Router>
           <Lightbox>
             <Scene key="root" hideNavBar> 
-            <Scene key="login"  component={Login} title="Login"/>
+            <Scene key="login" initial  component={Login} title="Login"/>
             <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
             <Scene key="bids"  component={Bids} title="Bids"/>
             <Scene key="bid"  component={BidPage} title="Bid"/>
@@ -71,7 +71,7 @@ class App extends React.Component {
             <Scene key="membership"  component={MembershipScreen} title="membership"/>
             <Scene key="calculator"  component={Calculator} title="Calculator"/>
 
-            <Scene key="calculations" initial component={CalculationsScreen} title="calculations"/>
+            <Scene key="calculations"  component={CalculationsScreen} title="calculations"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
             <Scene key="terms"  component={TermsScreen} title="terms"/>
             

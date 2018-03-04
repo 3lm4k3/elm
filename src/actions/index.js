@@ -2,7 +2,7 @@ import firebase from "firebase"
 import "../firebase/index"
 import FBSDK, { LoginManager, AccessToken } from "react-native-fbsdk"
 
-import { GoogleSignin,GoogleSigninButton } from "react-native-google-signin"
+//import { GoogleSignin,GoogleSigninButton } from "react-native-google-signin"
 import { ToastAndroid } from "react-native"
 
 
@@ -37,39 +37,39 @@ export const startFacebookLogin = () => {
   }
 }
 export const startGoogleLogin = () => {
-  return (dispatch, getState) => {
+  // return (dispatch, getState) => {
     
-    GoogleSignin.configure({
-       iosClientId: '969169667732-41b7b2j9mog5e1c79r6pk764l30sc9j3.apps.googleusercontent.com' // only for iOS
-    })
-    .then(() => {
-      GoogleSignin.signIn().then(data => {
-        const credential =  firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
-        return firebase.auth().signInWithCredential(credential).then(currentUser=> {
-          const user  = currentUser.toJSON()
-          console.log(JSON.stringify(user))
-          dispatch(setCurrentUser(user))
+  //   GoogleSignin.configure({
+  //      iosClientId: '969169667732-41b7b2j9mog5e1c79r6pk764l30sc9j3.apps.googleusercontent.com' // only for iOS
+  //   })
+  //   .then(() => {
+  //     GoogleSignin.signIn().then(data => {
+  //       const credential =  firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
+  //       return firebase.auth().signInWithCredential(credential).then(currentUser=> {
+  //         const user  = currentUser.toJSON()
+  //         console.log(JSON.stringify(user))
+  //         dispatch(setCurrentUser(user))
           
 
-        })
-      }).catch(e => {
-        ToastAndroid.showWithGravityAndOffset(
-          e.message,
-          ToastAndroid.LONG,
-          ToastAndroid.BOTTOM,
-          25,
-          50
-        );
-      console.log(e)
+  //       })
+  //     }).catch(e => {
+  //       ToastAndroid.showWithGravityAndOffset(
+  //         e.message,
+  //         ToastAndroid.LONG,
+  //         ToastAndroid.BOTTOM,
+  //         25,
+  //         50
+  //       );
+  //     console.log(e)
 
         
-      })
-    }).catch(e => {
-      console.log(e);
+  //     })
+  //   }).catch(e => {
+  //     console.log(e);
       
-    })
+  //   })
     
-  }
+  // }
   
 }
 export const startLinkedinLogin = (token) => {

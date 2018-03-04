@@ -48,11 +48,7 @@ export default class FirstScreen extends React.Component {
 
             onPress={() => Actions.pop()}
           > 
-            <Image
-
-               source={require('../assets/images/back-arrow-white.png')}
-               
-            ></Image>
+            <Image source={require('../assets/images/back-arrow-white.png')}/>
           </TouchableOpacity>
           <Text style={styles.headerText}>New Account</Text>
           </View>

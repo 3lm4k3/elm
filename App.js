@@ -18,7 +18,7 @@ import Stocks from "./src/components/Stocks/index" // Calculator Component
 import MarketPlace from "./src/components/MarketPlace/index" // Calculator Component
 import PostLightBox from "./src/components/PostLightBox/index"
 //first Login Screen
-import FirstScreen from "./src/components/Sign up";
+import FirstScreen from "./src/components/SignUp/index";
 //second Login Screen
 import TakeTourScreen from "./src/components/Take a Tour login and signup";
 import TermsScreen from "./src/components/TermsNConditions"
@@ -36,7 +36,8 @@ import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
 import CategoryPage from "./src/components/CategoryPage/index"
 import ProductPage from "./src/components/ProductPage/index"
-
+import PublicScene from "./src/components/PublicScene/index"
+import PrivateScene from "./src/components/PrivateScene/index"
 import { configure } from "./src/store/index"
 
 
@@ -47,7 +48,7 @@ class App extends React.Component {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
-        store.dispatch(setCurrentUser(user))
+        store.dispatch(setCurrentUser(user))  
         console.log(user);
         
       } else {
@@ -61,6 +62,7 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <Lightbox>
+<<<<<<< HEAD
             <Scene key="root" hideNavBar> 
             <Scene key="login" initial  component={Login} title="Login"/>
             <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
@@ -97,6 +99,39 @@ class App extends React.Component {
 
 
           </Scene>
+=======
+            <Scene key="root" hideNavBar={true}>
+              <Scene key="login" initial  component={Login} title="Login"/>
+              <PrivateScene >
+                <Scene key="newsfeed" component={NewsFeed} title="NewsFeed" hideNavBar={true}/>
+              </PrivateScene>
+              <Scene key="bids"  component={Bids} title="Bids"/>
+              <Scene key="bid" component={BidPage} title="Bid"/> 
+              <Scene key="createbid" component={CreateBid} title="Bid"/>
+              <Scene key="more"  component={MoreScreen} title="more"/>
+              <Scene key="calculator" component={Calculator} title="Calculator"/>
+              <Scene key="stocks"  component={Stocks} title="Stocks"/>
+              <Scene key="market"   component={MarketPlace} title="MarketPlace"/>
+              <Scene key="category"  component={CategoryPage} title="Category"/>
+              <Scene key="product"  component={ProductPage} title="Product"/>
+              <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
+              <Scene key="register" component={FirstScreen} title="SignUp"/>
+              <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
+              <Scene key="profiles" component={ProfilesScreen} title="Profiles"/>
+              <Scene key="pdfPage" component={PDFPage} title="pdfPage"/>
+              <Scene key="References"  component={ReferencesScreen} title="References"/>
+              <Scene key="VisitedProfileProjects" component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
+              <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
+              <Scene key="membership"  component={MembershipScreen} title="membership"/>
+              <Scene key="calculations" component={CalculationsScreen} title="calculations"/>
+              <Scene key="terms"  component={TermsScreen} title="terms"/>
+
+              <Scene key="verfication"  component={VerficationScreen} title="verfication"/>
+              <Scene key="codes"  component={CodesScreen} title="codes" />
+              <Scene key="finishing"  component={FinishingScreen} title="finishing" />
+
+            </Scene>
+>>>>>>> a45979a2a28b1a8d8f55de4fd02659c4fd7a62bd
 
             {/* Lightbox components will lay over the screen, allowing transparency*/}
             <Scene key="imageLightBox" component={ImageLightBox} />
@@ -114,7 +149,5 @@ class App extends React.Component {
 EStyleSheet.build({
   $primaryColor: "#5871B5"
 })
-
-
 export default App
 

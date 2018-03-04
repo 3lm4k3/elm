@@ -15,14 +15,16 @@ import Icon from "react-native-vector-icons/Feather"
 import IonIcons from "react-native-vector-icons/Ionicons"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import { connect } from "react-redux"
 
 import cstyles from "../common/styles"
 import Divider from "../common/Divider";
 import Button from "../common/RippleButton";
+import { startLogout } from "../../actions/index"
 
 const { bold } = cstyles
 
-export default class SideBar extends React.Component {
+class SideBar extends React.Component {
   closeDrawer = () => {
     this.drawer._root.close()
   };
@@ -30,6 +32,7 @@ export default class SideBar extends React.Component {
     this.drawer._root.open()
   };
   render() {
+    const { dispatch } = this.props
     return (
       <LinearGradient colors={['#5871B5', "#935CAE"]} style={styles.container} >
         <View style={styles.profile} >
@@ -78,7 +81,7 @@ export default class SideBar extends React.Component {
             <IonIcons name="ios-moon" size={30} color="#fff" />
             <Text style={[styles.listItemText, {marginLeft: 15}]} >Night Mode</Text>
           </Ripple>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >
+          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} onPress={() => dispatch(startLogout())}>
             <Icon name="power" size={30} color="#fff" />
             <Text style={[styles.listItemText, {marginLeft: 10}]} >Log Out</Text>
           </Ripple>
@@ -128,3 +131,5 @@ const styles = StyleSheet.create({
     marginTop: 10
   }
 })
+
+export default connect()(SideBar)

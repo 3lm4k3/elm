@@ -2,11 +2,14 @@ import firebase from "firebase"
 import "../firebase/index"
 import FBSDK, { LoginManager, AccessToken } from "react-native-fbsdk"
 
-//import { GoogleSignin,GoogleSigninButton } from "react-native-google-signin"
+import { GoogleSignin,GoogleSigninButton } from "react-native-google-signin"
 import { ToastAndroid } from "react-native"
 
 
 const querystring = require("qs")
+import { Actions } from "react-native-router-flux"
+
+import { addBasicEntities, addSupportingEntities } from "../utils/index"
 
 
 export const startFacebookLogin = () => {
@@ -36,40 +39,32 @@ export const startFacebookLogin = () => {
     );
   }
 }
+
+
 export const startGoogleLogin = () => {
-  // return (dispatch, getState) => {
+  return (dispatch, getState) => {
     
-  //   GoogleSignin.configure({
-  //      iosClientId: '969169667732-41b7b2j9mog5e1c79r6pk764l30sc9j3.apps.googleusercontent.com' // only for iOS
-  //   })
-  //   .then(() => {
-  //     GoogleSignin.signIn().then(data => {
-  //       const credential =  firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
-  //       return firebase.auth().signInWithCredential(credential).then(currentUser=> {
-  //         const user  = currentUser.toJSON()
-  //         console.log(JSON.stringify(user))
-  //         dispatch(setCurrentUser(user))
-          
+    GoogleSignin.configure({
+       iosClientId: '969169667732-41b7b2j9mog5e1c79r6pk764l30sc9j3.apps.googleusercontent.com' // only for iOS
+    })
+    .then(() => {
+      GoogleSignin.signIn().then(data => {
+        const credential =  firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
+        return firebase.auth().signInWithCredential(credential).then(currentUser=> {
+          const user  = currentUser.toJSON()
+          console.log(JSON.stringify(user))
+            
 
-  //       })
-  //     }).catch(e => {
-  //       ToastAndroid.showWithGravityAndOffset(
-  //         e.message,
-  //         ToastAndroid.LONG,
-  //         ToastAndroid.BOTTOM,
-  //         25,
-  //         50
-  //       );
-  //     console.log(e)
-
-        
-  //     })
-  //   }).catch(e => {
-  //     console.log(e);
+        })
+      }).catch(e => {
+        alert(e.message)
+      })
+    }).catch(e => {
+      console.log(e);
       
-  //   })
+    })
     
-  // }
+  }
   
 }
 export const startLinkedinLogin = (token) => {
@@ -102,7 +97,7 @@ export const startLinkedinLogin = (token) => {
       dispatch(setHideSpinner())
       
       return firebase.auth().signInWithCustomToken(token).then(() => {
-        dispatch(setCurrentUser(json))
+
       })
       
     }).catch(e => {
@@ -118,7 +113,6 @@ export const startLogin = (email, password)=> {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => {
       console.log(user)
-      dispatch(setCurrentUser(user))      
     })
     .catch(e => {
       console.log(e.message)
@@ -126,15 +120,47 @@ export const startLogin = (email, password)=> {
   }
 }
 
-export const startSignUp = (email, password) => {
+
+
+
+
+export const setBasicEntities = (entities) => {
   return (dispatch, getState) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((user) => {
-      console.log(user)
-      dispatch(setCurrentUser(user))
+    const userId = getState().currentUser.uid
+    addBasicEntities(userId, entities).then(json => {
+      dispatch({
+        type: "SET_BASIC_ENTITIES",
+        entities: json
+      })
+      dispatch(setSupportingEntities(entities))
+    }).catch(e => {
+      alert(e)
     })
-    .catch(e => {
-      console.log(e.message)
+  }
+}
+export const removeBasicEntities = () => {
+  return {
+    type: "REMOVE_BASIC_ENTITIES",
+  }
+}
+export const setSupportingEntities = (entities) => {
+  return (dispatch, getState) => {
+    const userId = getState().currentUser.uid
+    addSupportingEntities(userId, entities).then(json => {
+      dispatch({
+        type: "SET_SUPPORTING_ENTITIES",
+        entities: json
+      })
+    }).catch(e => {
+      alert(e)
+    })
+  }
+}
+
+export const removeSupportingEntities = () => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: "REMOVE_SUPPORTING_ENTITIES",
     })
   }
 }
@@ -142,6 +168,7 @@ export const startSignUp = (email, password) => {
 export const startLogout = ()=> {
   return (dispatch, getState) =>{
     return firebase.auth().signOut().then(()=>{
+      dispatch(logout(), removeBasicEntities(), removeSupportingEntities())
     }).catch(e => e)
   }
 }
@@ -166,3 +193,11 @@ export const setHideSpinner = () => {
   }
 }
 
+export const redirectIfAuthorized = () => {
+  return (dispatch, getState) => {
+    const { currentUser } = getState()
+    if(!(_.isEmpty(currentUser))) {
+      Actions.newsfeed()
+    }
+  }
+}

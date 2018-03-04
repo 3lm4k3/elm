@@ -4,12 +4,12 @@
 .expo/
 
 # dependencies
-/node_modules
-/ios
-/android
-/.idea
-/firebase/functions/node_modules
-
+node_modules/
+ios/
+android/
+.idea/
+firebase/functions/node_modules/
+playground/
 
 # misc
 .env.local

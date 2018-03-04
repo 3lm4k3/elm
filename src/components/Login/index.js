@@ -30,7 +30,10 @@ import Divider from "../common/Divider"  // Header Component
 
 import styles from "./styles"  // Component Styles
 import cstyles from "../common/styles"
-import {startFacebookLogin, startGoogleLogin, startSignUp, startLogin, startLinkedinLogin} from "../../actions/index";
+import {
+  startFacebookLogin, startGoogleLogin, startSignUp, startLogin, startLinkedinLogin,
+  redirectIfAuthorized
+} from "../../actions/index";
 
 
 class Login extends React.Component {
@@ -43,21 +46,16 @@ class Login extends React.Component {
   handleLinkedinLogin = (token) => {
     console.log(token.access_token)
     this.props.dispatch(startLinkedinLogin(token.access_token))
-    
   }
   handleLinkedinLoginError = (e) => {
     console.log(e);
-    
   }
   handleLogin = () => {
     const { email, passwordText:password } = this.state
-    this.props.dispatch(startSignUp(email, password ))
+    this.props.dispatch(startLogin(email, password ))
   }
-  handleFirebaseTest = () => {
-    firebase.database().ref("users").once("value", (user)=> {
-        console.log(user);
-        
-    })
+  componentWillMount() {
+    this.props.dispatch(redirectIfAuthorized())
   }
   render() {
     const { state } = this
@@ -141,12 +139,11 @@ class Login extends React.Component {
                 <Button transparent><Text style={[cstyles.underlined, cstyles.white, styles.belowInputText]}>Forgot my password</Text></Button>
               </View>
               <View style={EstyleSheet.child(styles, 'controller', 1, 2)}>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => Actions.firstommy }>
                 <Text style={[cstyles.underlined, cstyles.white, styles.belowInputText]}>I don't have an Account</Text>                
                 </TouchableWithoutFeedback>
               </View>
-              <Button style={styles.loginButton} onPress={this.handleFirebaseTest}>
-              {/* <Button style={styles.loginButton} onPress={this.handleLogin}> */}
+              <Button style={styles.loginButton} onPress={this.handleLogin}>
                 <Text style={styles.loginButtonText}>Login</Text>
               </Button>
               

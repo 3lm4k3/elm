@@ -3748,11 +3748,9 @@ react-native-fs@^2.9.11:
     base-64 "^0.1.0"
     utf8 "^2.1.1"
 
-react-native-i18n@^2.0.12:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-2.0.12.tgz#4a503cc73b2fe55e8518f6d4a1340d3b449d8d1a"
-  dependencies:
-    i18n-js "^3.0.3"
+react-native-google-signin@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-google-signin/-/react-native-google-signin-0.12.0.tgz#fc549593adbc92ed2a5a683a957f157650ece961"
 
 react-native-i18n@^2.0.12:
   version "2.0.12"
@@ -3763,6 +3761,10 @@ react-native-i18n@^2.0.12:
 react-native-image-picker@^0.26.7:
   version "0.26.7"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.7.tgz#ad2ee957f7f6cc01396893ea03d84cb2adb2e376"
+
+react-native-immediate-phone-call@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-immediate-phone-call/-/react-native-immediate-phone-call-1.0.0.tgz#ad1f5e2bd686a1a495ed68e8a4c96205bdfa2247"
 
 react-native-iphone-x-helper@^1.0.1:
   version "1.0.2"
@@ -3821,6 +3823,14 @@ react-native-parallax-scroll-view@^0.20.1:
   resolved "https://registry.yarnpkg.com/react-native-parallax-scroll-view/-/react-native-parallax-scroll-view-0.20.1.tgz#7fad3411df8632b7c99fed5d0a5c0a8f97007b38"
   dependencies:
     prop-types "^15.6.0"
+
+react-native-phone-call@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-phone-call/-/react-native-phone-call-1.0.4.tgz#809b7dd27452e429c9deddb4c311997702e333ba"
+
+react-native-rate@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-rate/-/react-native-rate-1.0.8.tgz#126e2b86a461ab1b2e2fb94f2b20f211cb1131dd"
 
 react-native-read-more-text@^1.0.0:
   version "1.0.0"

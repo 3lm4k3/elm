@@ -25,22 +25,16 @@ export default class MoreScreen extends React.Component {
     super(props);
     this.state = {
       
-      data: [	{key:1,title: 'My bids',avatar:require('../assets/images/more-mybids-ico.png'),page:() => Actions.bids()},
-      			{key:2,title: 'My proposals',avatar:require('../assets/images/more-myproposals-ico.png'),page:() => Actions.bids()},
+      data: [	
       		 	{key:3,title: 'Today prices',avatar:require('../assets/images/more-todayprice-ico.png'),page:() => Actions.stocks()},
 			 	{key:4,title: 'Blogs',avatar:require('../assets/images/more-blogs-ico.png'),page:() => Actions.newsfeed()},
 			 	{key:5,title: 'Quick calc',avatar:require('../assets/images/more-quickcal-ico.png'),page:() => Actions.calculator()},
-			 	{key:6,title: 'Finishing',avatar:require('../assets/images/more-finishing-ico.png'),page:() => Actions.References()},
-			 	{key:7,title: 'Codes',avatar:require('../assets/images/more-cods-ico.png'),page:() => Actions.References()},
+			 	{key:6,title: 'Finishing',avatar:require('../assets/images/more-finishing-ico.png'),page:() => Actions.finishing()},
+			 	{key:7,title: 'Codes',avatar:require('../assets/images/more-cods-ico.png'),page:() => Actions.codes()},
 			 	{key:8,title: 'Tanfez',avatar:require('../assets/images/more-tanfez-ico.png'),page:() => Actions.References()},
 			 	{key:9,title: 'Roads',avatar:require('../assets/images/more-roads-ico.png'),page:() => Actions.References()},
-			 	{key:10,title: 'Tenders “from the gov”',avatar:require('../assets/images/more-tenders-ico.png'),page:() => Actions.References()},
-			 	{key:11,title: 'Jobs',avatar:require('../assets/images/more-jobs-ico.png'),page:() => Actions.References()},
-			 	{key:12,title: 'downloaded pdfs',avatar:require('../assets/images/more-pdfs-ico.png'),page:() => Actions.References()},
-			 	{key:13,title: 'Membership Plans',avatar:require('../assets/images/more-membership-ico.png'),page:() => Actions.References()},
-			 	{key:14,title: 'My Basket',avatar:require('../assets/images/more-mybasket-ico.png'),page:() => Actions.References()},
-			 	{key:15,title: 'Drafs',avatar:require('../assets/images/more-drafs-ico.png'),page:() => Actions.References()},
-			 	{key:16,title: 'Offers',avatar:require('../assets/images/more-offers-ico.png'),page:() => Actions.References()},
+			 	{key:13,title: 'Membership Plans',avatar:require('../assets/images/more-membership-ico.png'),page:() => Actions.membership()},
+			 	{key:16,title: 'Offers',avatar:require('../assets/images/more-offers-ico.png'),page:() => Actions.newsfeed()},
 
 
 

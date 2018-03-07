@@ -54,7 +54,7 @@ class Login extends React.Component {
     const { email, passwordText:password } = this.state
     this.props.dispatch(startLogin(email, password ))
   }
-  componentWillMount() {
+  componentDidUpdate() {
     this.props.dispatch(redirectIfAuthorized())
   }
   render() {

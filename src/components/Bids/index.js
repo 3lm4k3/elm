@@ -32,9 +32,12 @@ import Fab from "../common/Fab"
 import Bid from "../Bid/index"
 import SideBar from "../SideBar/index"
 import AutoLoadList from "../common/AutoLoadList"
-
+import call from 'react-native-phone-call'
 import cstyles from "../common/styles"
-
+const args = {
+  number: '01111197906', // String value with the number to call
+  prompt: false // Optional boolean property. Determines if the user should be prompt prior to the call 
+}
 
 class Bids extends React.Component {
   state = {
@@ -69,7 +72,7 @@ class Bids extends React.Component {
               <SearchBar color="#E8E9EA" onChangeText={(text) => this.setState({searchText: text})}  />
             </View>
             <View style={cstyles.right} >
-              <Button transparent>
+              <Button transparent onPress={this.openDrawer}>
                 <View style={cstyles.iconWrapper} >
                   <View style={styles.circle} >
                     <Text style={styles.iconText} >!</Text>
@@ -105,15 +108,15 @@ class Bids extends React.Component {
           </Tabs>
           <Footer style={cstyles.footer} >
             <FooterTab style={cstyles.footerTab}>
-              <Button vertical>
+              <Button vertical >
                 <FontAwesome name="newspaper-o" size={30} color="#484848" />
                 <Text>Feeds</Text>
               </Button>
-              <Button vertical>
+              <Button vertical onPress={this.openDrawer}>
                 <Icon name="users" size={30} color="#484848" />
                 <Text>Profiles</Text>
               </Button>
-              <Button vertical>
+              <Button vertical onPress={call(args).catch(console.error)}>
                 <LineIcon name="tag" size={30} color="#484848"  />
                 <Text>Market</Text>
               </Button>

@@ -2,10 +2,10 @@ import firebase from "firebase"
 import "../firebase/index"
 import FBSDK, { LoginManager, AccessToken } from "react-native-fbsdk"
 
-import { GoogleSignin,GoogleSigninButton } from "react-native-google-signin"
+//import { GoogleSignin,GoogleSigninButton } from "react-native-google-signin"
 import { ToastAndroid } from "react-native"
 
-
+import _ from "underscore"
 const querystring = require("qs")
 import { Actions } from "react-native-router-flux"
 
@@ -42,29 +42,29 @@ export const startFacebookLogin = () => {
 
 
 export const startGoogleLogin = () => {
-  return (dispatch, getState) => {
+  // return (dispatch, getState) => {
     
-    GoogleSignin.configure({
-       iosClientId: '969169667732-41b7b2j9mog5e1c79r6pk764l30sc9j3.apps.googleusercontent.com' // only for iOS
-    })
-    .then(() => {
-      GoogleSignin.signIn().then(data => {
-        const credential =  firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
-        return firebase.auth().signInWithCredential(credential).then(currentUser=> {
-          const user  = currentUser.toJSON()
-          console.log(JSON.stringify(user))
+  //   GoogleSignin.configure({
+  //      iosClientId: '969169667732-41b7b2j9mog5e1c79r6pk764l30sc9j3.apps.googleusercontent.com' // only for iOS
+  //   })
+  //   .then(() => {
+  //     GoogleSignin.signIn().then(data => {
+  //       const credential =  firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
+  //       return firebase.auth().signInWithCredential(credential).then(currentUser=> {
+  //         const user  = currentUser.toJSON()
+  //         console.log(JSON.stringify(user))
             
 
-        })
-      }).catch(e => {
-        alert(e.message)
-      })
-    }).catch(e => {
-      console.log(e);
+  //       })
+  //     }).catch(e => {
+  //       alert(e.message)
+  //     })
+  //   }).catch(e => {
+  //     console.log(e);
       
-    })
+  //   })
     
-  }
+  // }
   
 }
 export const startLinkedinLogin = (token) => {
@@ -196,7 +196,7 @@ export const setHideSpinner = () => {
 export const redirectIfAuthorized = () => {
   return (dispatch, getState) => {
     const { currentUser } = getState()
-    if(!(_.isEmpty(currentUser))) {
+    if(!_.isEmpty(currentUser)) {
       Actions.newsfeed()
     }
   }

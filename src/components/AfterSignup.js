@@ -181,7 +181,7 @@ class AfterSignupScreen extends React.Component {
     })
   }
   componentWillMount() {
-    !(_.isEmpty(this.props.basicEntities)) ? Actions.newsfeed() : null
+    if(!(_.isEmpty(this.props.basicEntities)))  Actions.newsfeed() 
   }
 	render(){
 		return (

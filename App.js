@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { Provider } from 'react-redux';
 import firebase from "firebase"
 
-import { setCurrentUser, logout } from "./src/actions/index"
+import { setCurrentUser, logout, redirectIfAuthorized } from "./src/actions/index"
 
 //
 import ImageLightBox from "react-native-lightbox"
@@ -25,6 +25,7 @@ import TermsScreen from "./src/components/TermsNConditions"
 import AfterSignupScreen from "./src/components/AfterSignup";
 import ProfilesScreen from "./src/components/Profiles";
 import ReferencesScreen from "./src/components/References";
+import DownloadedPdfsScreen from "./src/components/DownloadedPdfs"
 import PDFPage from "./src/components/PDFPage";
 import CodesScreen from "./src/components/Codes";
 import CategoryProsScreen from './src/components/CategoryPros';
@@ -32,6 +33,7 @@ import CalculationsScreen from './src/components/Calculations'
 import MembershipScreen from './src/components/Membership'
 import VerficationScreen from './src/components/Verfication'
 import FinishingScreen from './src/components/Finishing'
+import HowToScreen from './src/components/HowTo'
 import MoreScreen from "./src/components/More";
 import VisitedProfileProjectsScreen from './src/components/VisitedProfileProjects';
 import CategoryPage from "./src/components/CategoryPage/index"
@@ -50,6 +52,8 @@ class App extends React.Component {
         // User is signed in.
         store.dispatch(setCurrentUser(user))  
         console.log(user);
+        //store.dispatch(redirectIfAuthorized())
+
         
       } else {
         // No user is signed in.
@@ -62,20 +66,21 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <Lightbox>
-<<<<<<< HEAD
+
             <Scene key="root" hideNavBar> 
-            <Scene key="login" initial  component={Login} title="Login"/>
+            <Scene key="login"   component={Login} title="Login"/>
             <Scene key="newsfeed"  component={NewsFeed} title="NewsFeed"/>
             <Scene key="bids"  component={Bids} title="Bids"/>
             <Scene key="bid"  component={BidPage} title="Bid"/>
             <Scene key="createbid" component={CreateBid} title="Bid"/>
-            <Scene key="more"  component={MoreScreen} title="more"/>
+            <Scene key="more" initial component={MoreScreen} title="more"/>
             <Scene key="membership"  component={MembershipScreen} title="membership"/>
             <Scene key="calculator"  component={Calculator} title="Calculator"/>
 
             <Scene key="calculations"  component={CalculationsScreen} title="calculations"/>
             <Scene key="stocks"  component={Stocks} title="Stocks"/>
             <Scene key="terms"  component={TermsScreen} title="terms"/>
+            <Scene key="howto"  component={HowToScreen} title="howto"/>
             
             <Scene key="market"  component={MarketPlace} title="MarketPlace"/>
             <Scene key="category"  component={CategoryPage} title="Category"/>
@@ -89,6 +94,7 @@ class App extends React.Component {
             <Scene key="home"  component={AfterSignupScreen} title="AfterSignupScreen"/>
             <Scene key="profiles"  component={ProfilesScreen} title="Profiles"/>
             <Scene key="pdfPage"  component={PDFPage} title="pdfPage"/>
+            <Scene key="downloadedPdfs"  component={DownloadedPdfsScreen} title="downloaded" />
             <Scene key="References"  component={ReferencesScreen} title="References"/>
             <Scene key="VisitedProfileProjects"  component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
 
@@ -99,39 +105,7 @@ class App extends React.Component {
 
 
           </Scene>
-=======
-            <Scene key="root" hideNavBar={true}>
-              <Scene key="login" initial  component={Login} title="Login"/>
-              <PrivateScene >
-                <Scene key="newsfeed" component={NewsFeed} title="NewsFeed" hideNavBar={true}/>
-              </PrivateScene>
-              <Scene key="bids"  component={Bids} title="Bids"/>
-              <Scene key="bid" component={BidPage} title="Bid"/> 
-              <Scene key="createbid" component={CreateBid} title="Bid"/>
-              <Scene key="more"  component={MoreScreen} title="more"/>
-              <Scene key="calculator" component={Calculator} title="Calculator"/>
-              <Scene key="stocks"  component={Stocks} title="Stocks"/>
-              <Scene key="market"   component={MarketPlace} title="MarketPlace"/>
-              <Scene key="category"  component={CategoryPage} title="Category"/>
-              <Scene key="product"  component={ProductPage} title="Product"/>
-              <Scene key="tourLogin"  component={TakeTourScreen} title="TakeTourScreen"/>
-              <Scene key="register" component={FirstScreen} title="SignUp"/>
-              <Scene key="home" component={AfterSignupScreen} title="AfterSignupScreen"/>
-              <Scene key="profiles" component={ProfilesScreen} title="Profiles"/>
-              <Scene key="pdfPage" component={PDFPage} title="pdfPage"/>
-              <Scene key="References"  component={ReferencesScreen} title="References"/>
-              <Scene key="VisitedProfileProjects" component={VisitedProfileProjectsScreen} title="VisitedProfileProjects"/>
-              <Scene key="CategoryProsScreen"  component={CategoryProsScreen} title="CategoryProsScreen"/>
-              <Scene key="membership"  component={MembershipScreen} title="membership"/>
-              <Scene key="calculations" component={CalculationsScreen} title="calculations"/>
-              <Scene key="terms"  component={TermsScreen} title="terms"/>
 
-              <Scene key="verfication"  component={VerficationScreen} title="verfication"/>
-              <Scene key="codes"  component={CodesScreen} title="codes" />
-              <Scene key="finishing"  component={FinishingScreen} title="finishing" />
-
-            </Scene>
->>>>>>> a45979a2a28b1a8d8f55de4fd02659c4fd7a62bd
 
             {/* Lightbox components will lay over the screen, allowing transparency*/}
             <Scene key="imageLightBox" component={ImageLightBox} />

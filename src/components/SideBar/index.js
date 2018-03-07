@@ -9,6 +9,10 @@ import {
   Drawer,
   Thumbnail
 } from "native-base"
+import Rate, { AndroidMarket } from 'react-native-rate'
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
+import { Actions } from "react-native-router-flux"
+import call from 'react-native-phone-call'
 import LinearGradient from "react-native-linear-gradient"
 import Ripple from "react-native-material-ripple"
 import Icon from "react-native-vector-icons/Feather"
@@ -16,21 +20,62 @@ import IonIcons from "react-native-vector-icons/Ionicons"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import { connect } from "react-redux"
-
+import { ShareDialog } from 'react-native-fbsdk';
 import cstyles from "../common/styles"
 import Divider from "../common/Divider";
 import Button from "../common/RippleButton";
 import { startLogout } from "../../actions/index"
 
 const { bold } = cstyles
-
+const args = {
+  number: '01155454503', // String value with the number to call
+  prompt: true // Optional boolean property. Determines if the user should be prompt prior to the call 
+}
 class SideBar extends React.Component {
+
+  constructor(props) {
+        super(props)
+        const shareLinkContent = {
+      contentType: 'link',
+      contentUrl: 'https://itunes.apple.com/us/app/الموقع/id1277773878?ls=1&mt=8',
+      contentDescription: 'Sharing From React Native!'
+    };
+        this.state = {
+            rated: false,
+            shareLinkContent: shareLinkContent,
+        }
+    }
   closeDrawer = () => {
     this.drawer._root.close()
   };
   openDrawer = () => {
     this.drawer._root.open()
   };
+
+
+  shareLinkWithShareDialog() {
+    var tmp = this;
+    ShareDialog.canShow(this.state.shareLinkContent).then(
+      function(canShow) {
+        if (canShow) {
+          return ShareDialog.show(tmp.state.shareLinkContent);
+        }
+      }
+    ).then(
+      function(result) {
+        if (result.isCancelled) {
+          alert('Share cancelled');
+        } else {
+          alert('Share success with postId: ' + result.postId);
+        }
+      },
+      function(error) {
+        alert('Share fail with error: ' + error);
+      }
+    );
+  }
+
+
   render() {
     const { dispatch } = this.props
     return (
@@ -42,11 +87,15 @@ class SideBar extends React.Component {
           <Icon name="more-horizontal" size={20} color="#fff" style={styles.profileIcon} />
         </View>
         <View style={styles.list}>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >
+          <Ripple rippleContainerBorderRadius={5}
+            onPress={() => Actions.home()}
+           rippleDuration={800} style={styles.listItem} >
               <IonIcons name="ios-heart" size={30} color="#fff"  />
               <Text style={styles.listItemText} >Change interests</Text>
           </Ripple>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >
+          <Ripple rippleContainerBorderRadius={5} 
+          onPress={() => Actions.howto()}
+          rippleDuration={800} style={styles.listItem} >
             <Icon name="help-circle" size={30} color="#fff"  />
             <Text style={styles.listItemText} >How it is work</Text>
           </Ripple>
@@ -54,15 +103,37 @@ class SideBar extends React.Component {
             <IonIcons name="ios-globe-outline" size={30} color="#fff"  />
             <Text style={styles.listItemText} >Country and language</Text>
           </Ripple>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >          
+
+          
+
+
+          <Ripple rippleContainerBorderRadius={5} 
+          onPress={()=>{
+                    let options = {
+                        AppleAppID:"1277773878",
+                         preferInApp:true,
+                    }
+                    Rate.rate(options, (success)=>{
+                        if (success) {
+                            // this technically only tells us if the user successfully went to the Review Page. Whether they actually did anything, we do not know.
+                            this.setState({rated:true})
+                            console.log(this.state.rated)
+                        }
+                    })
+                }}
+          rippleDuration={800} style={styles.listItem} >          
             <FontAwesome name="star" size={30} color="#fff"  />
             <Text style={styles.listItemText} >Rate our app</Text>
           </Ripple>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >
+          <Ripple rippleContainerBorderRadius={5} 
+            onPress={this.shareLinkWithShareDialog.bind(this)}
+           rippleDuration={800} style={styles.listItem} >
             <IonIcons name="md-share" size={30} color="#fff"  />
             <Text style={styles.listItemText} >Share with friends</Text>
           </Ripple>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >
+          <Ripple rippleContainerBorderRadius={5} 
+            
+          rippleDuration={800} style={styles.listItem} >
             <IonIcons name="ios-call" size={30} color="#fff"  />
             <Text style={styles.listItemText} >Call us</Text>
           </Ripple>
@@ -70,7 +141,9 @@ class SideBar extends React.Component {
             <MaterialCommunityIcons name="comment-text" size={30} color="#fff"  />
             <Text style={styles.listItemText} >Leave a feedback</Text>
           </Ripple>
-          <Ripple rippleContainerBorderRadius={5} rippleDuration={800} style={styles.listItem} >
+          <Ripple rippleContainerBorderRadius={5} 
+          onPress={() => Actions.terms()}
+          rippleDuration={800} style={styles.listItem} >
             <IonIcons name="ios-checkmark-circle" size={30} color="#fff"  />
             <Text style={styles.listItemText} >Terms & Condition</Text>
           </Ripple>
